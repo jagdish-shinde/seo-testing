@@ -1,0 +1,35 @@
+.mainWrapper{
+    background-color: #FFF1F1;
+    padding-top: 2.81rem;
+    padding-bottom: 3rem;
+}
+.mainWrapper>h1{
+    color: #1D252D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 0.75rem;
+}
+.placemntCardWraper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1.5rem;
+}
+@media screen and (min-width:1024px) {
+    .mainWrapper{
+        padding-top: 2rem;
+    }
+    .placemntCardWraper{
+        padding-top: 0.5rem;
+    }
+    .mainWrapper>h1{
+        font-size: 1.65rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}

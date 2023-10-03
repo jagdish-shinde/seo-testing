@@ -1,0 +1,95 @@
+.mainWrapper>h1{
+    color: #1D252D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 2rem;
+    margin-bottom: 0.56rem;
+}
+.trendingImgWrapper{
+    background-color: #FFE9E9;
+    padding: 1.67rem 1rem 1.72rem 1rem;
+    margin-bottom: 4.38rem;
+    margin-top: 1.88rem;
+    cursor: pointer;
+}
+.image{
+    width: 16.82513rem;
+    height: 10.42794rem;
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+.image:hover{
+    transform: translateY(-0.7rem);
+}
+.trendingImgWrapper{
+    display: flex;
+    overflow: auto;
+    gap:2rem;
+}
+.collegeImgAndNameWrapper>h2{
+    margin-top: 1rem;
+    color: #4B4B4B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.86756rem;
+    font-style: normal;
+    font-weight: 500;
+}
+.collegeImgAndNameWrapper>p{
+    color: #878787;
+    font-family: Inter;
+    font-size: 0.86756rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.23944rem;
+    text-align: center;
+}
+.trendingImgWrapper::-webkit-scrollbar {
+    width: 0.2rem; 
+}
+
+.trendingImgWrapper::-webkit-scrollbar-thumb {
+    background-color: #FFE9E9; 
+    border-radius: 8px;
+}
+
+.trendingImgWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #FFE9E9; 
+}
+
+.trendingImgWrapper::-webkit-scrollbar-track {
+    background-color: #FFE9E9;
+}
+
+@media screen and (min-width: 1024px) {
+    .mainWrapper>h1{
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    .trendingImgWrapper{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    .image{
+        width: 27.15rem;
+        height: 14.6rem;
+    }
+    .collegeImgAndNameWrapper>h2{
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+    }
+    .collegeImgAndNameWrapper>p{
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2rem;
+    }
+}

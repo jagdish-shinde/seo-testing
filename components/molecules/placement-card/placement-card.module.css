@@ -1,0 +1,192 @@
+.mainWrapper{
+    border-radius: 0.375rem;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(150, 150, 150, 0.25);
+    margin-top: 1.5rem;
+}
+.mainWrapper>h1{
+    color: #434343;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 0.87rem;
+}
+.line{
+    opacity: 1;
+}
+.wrapper{
+    padding: 1.29rem 1.5rem 1.62rem 1.5rem;
+}
+.wrapper>h2{
+    background-color: #F8F9FF;
+    border: 1px solid #E8EBFC;
+    padding: 0.44rem;
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+.wrapper>h3{
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.75rem;
+    background-color: #F8F9FF;
+    border: 1px solid #E8EBFC;
+    padding: 0.44rem;
+    border-radius: 6px;
+    margin-top: 0.75rem;
+    text-align: center;
+}
+.wrapper>h3>span{
+    color: #1B49EA;
+    font-weight: 600;
+}
+.packageWrapper{
+    display: flex;
+    gap:1.25rem;
+    margin-top: 0.75rem;
+}
+.packageText{
+    border-radius: 0.375rem;
+    border: 1px solid #E8EBFC;
+    background: #F5F9FE;
+    padding: 0.56rem 0rem;
+    min-width: 5rem;
+    min-height: 4.5rem;
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.packageText>p>span{
+    display: block;
+    font-weight: 500;
+}
+.packageText>p{
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1rem;
+}
+.packageText>p:nth-child(1){
+   font-weight: 600;
+}
+
+.packageText>p:nth-child(2){
+    color: #1B49EA;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+.topRecruiters{
+    margin-top: 0.75rem;
+    background-color: #F8F9FF;
+    border: 1px solid #E8EBFC;
+    border-radius: 6px;
+    padding: 0.75rem;
+}
+.topRecruiters>p:nth-child(1){
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    margin-bottom: 0.6rem;
+}
+.topRecruiters>p:last-child{
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+@media screen and (min-width: 1024px){
+    .mainWrapper{
+        width: 70%;
+    }
+    .mainWrapper>h1{
+        padding-top: 1.44rem;
+        color: #6F6F6F;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .wrapper>h2{
+        color: #4B4B4B;
+        font-family: Inter;
+        font-size: 0.9rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.35855rem;
+        padding: 0.6rem;
+    }
+    .wrapper>h3{
+        font-family: Inter;
+        font-size: 0.8rem;
+        font-style: normal;
+        font-weight: 400;
+        color: #4B4B4B;
+        padding: 0.5rem;
+    }
+    .wrapper>h3>span{
+        font-weight: 500;
+    }
+    .packageText{
+        text-align: center;
+        padding: 0.5rem 0 0 0.3rem;
+    }
+    .packageText>p>span{
+        display: inline;
+        font-weight: 400;
+    }
+    .packageText>p{
+        color: #4B4B4B;
+        font-family: Inter;
+        font-size: 0.9rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.35855rem;
+    }
+    .packageText>p:nth-child(1){
+        font-weight: 500;
+    }
+    .packageText>p:nth-child(2){
+        font-size: 0.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.35855rem;
+    }
+    .topRecruiters{
+        padding-bottom: 1.3rem;
+        padding-top: 1rem;
+    }
+    .topRecruiters>p:nth-child(1){
+        color: #4B4B4B;
+        font-weight: 500;
+        font-size: 0.89rem;
+        line-height: 1rem;
+    }
+    .topRecruiters>p:last-child{
+        color: #4B4B4B;
+        font-family: Inter;
+        font-size: 0.85rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2rem;
+    }
+}
