@@ -1,0 +1,258 @@
+.mainWrapper{
+    background-color: #E5EBFD;
+    margin-bottom: 3.31rem;
+}
+.mainWrapper>h1{
+    color: #1D252D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 2.19rem;
+    margin-bottom: 0.9rem;
+}
+.wrapper{
+    padding-bottom: 2.31rem;
+}
+.wrapper>p{
+    color: #4B4B4B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; 
+    margin-top: 1.13rem;
+    margin-bottom: 1.06rem;
+}
+.coursesList{
+    border-radius: 6px;
+    border: 0.418px solid #1D252D;
+    overflow: hidden;
+    margin-bottom: 1.37rem;
+}
+.course{
+    background-color: white;
+    text-align: center;
+    padding: 0.75rem 0;
+    border-top: 0.418px solid #1D252D;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #4B4B4B;
+}
+.coursesList>p:first-child{
+    border-top:unset;
+}
+.coursesList>p:nth-child(even){
+    background: #F8F9FF;
+}
+.facilitiesWrapper{
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem 0.94rem;
+}
+.facilityHeading{
+    text-align: center;
+    color: #1D252D;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.facilityHeading>span{
+    display: none;
+}
+.admissionWrapeer{
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.06rem 0.94rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.19rem;
+}
+.admissionWrapeer>p{
+    text-align: center;
+    background: #FFE0E0;
+    padding:0.5rem 0;
+    border-radius: 6px;
+    color: #4B4B4B;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.iconWrapper{
+    width: 3.3rem;
+    height: 3.3rem;
+    background-color: #FFE9E9;
+    border-radius: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.logo{
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    transition: width 0.5s ease;
+}
+/* .logo:hover{
+    width: 3.5rem;
+    height: 3.5rem;
+} */
+.facilitiesIconWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.88rem;
+    border: 1px solid #6F85C6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.63rem;
+    margin-bottom: 1rem;
+}
+.iconText{
+    background-color: rgb(240, 197, 197);
+    color: #1D252D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0.4rem 0.2rem;
+    position: absolute;
+    margin-top: 0.5rem;
+    width: 4.7rem;
+}
+.iconText::before {
+    content: '';
+    position: absolute;
+    top: -77%;
+    left: 40%;
+    transform: translateX(-50%);
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent transparent rgb(240, 197, 197) transparent;
+    z-index: 3;
+}
+@media screen and (min-width:1024px) {
+    .mainWrapper{
+        margin-bottom: 4rem;
+    }
+    .mainWrapper>h1{
+        padding-top: 3rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.3rem;
+        color: #1D252D;
+        font-weight: 600;
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 3.68rem;
+    }
+    .wrapper>p{
+        margin-top: 1rem;
+        font-size: 1.1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.5rem;
+    }
+    .coursesList{
+        width: 65%;
+        border: 1px solid #1D252D;
+        cursor: pointer;
+    }
+    .course{
+        font-size: 1rem;
+        padding: 0.85rem 0 0.7rem 0;
+        border-top: 1px solid #1D252D;
+        font-weight: 400;
+        color: #000;
+    }
+    .course:hover{
+        background: #e2e6ff;
+    }
+    .course:nth-child(even):hover{
+        background: #e2e6ff;
+    }
+    .admissionWrapeer{
+        min-width: 77%;
+        margin-top: unset;
+    }
+    .admissionWrapeer>p{
+        font-size: 1rem;
+        font-weight: 500;
+        color: #4B4B4B;
+        padding: 0.5rem;
+    }
+    .facilitiesWrapper{
+        background-color: unset;
+        padding: unset;
+    }
+    .facilityHeading>span{
+        display: inline-block;
+    }
+    .facilityHeading{
+        color: #1D252D;
+        font-family: Inter;
+        font-size: 1.4rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 2rem;
+    }
+    .facilitiesIconWrapper{
+        background-color: white;
+        border: unset;
+        padding: 1rem;
+        justify-content: space-around;
+    }
+    .iconWrapper{
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50px;
+        background-color: rgba(196, 210, 251, 0.20);
+        position: relative;
+    }
+    .logo{
+        width: 2.44995rem;
+        height: 2.44995rem;
+    }
+    .iconText{
+        background-color: rgb(240, 197, 197);
+        color: #1D252D;
+        text-align: center;
+        font-family: Inter;
+        font-size: 0.5rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 0.4rem 0.2rem;
+        position: absolute;
+        margin-top: 0.5rem;
+        width: 4.8rem;
+    }
+    .iconText::before {
+        content: '';
+        position: absolute;
+        top: -77%;
+        left: 40%;
+        transform: translateX(-50%);
+        border-width: 11px;
+        border-style: solid;
+        border-color: transparent transparent rgb(240, 197, 197) transparent;
+        z-index: 3;
+    }
+}

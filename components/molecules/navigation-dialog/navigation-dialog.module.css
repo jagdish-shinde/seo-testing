@@ -1,0 +1,29 @@
+.wrapper{
+    padding: 1rem 1rem;
+    width: 20rem;
+    background-color: #E5EBFD;
+    position: relative;
+}
+.dialogModal>p{
+    padding: 1rem;
+}
+.wrapper>p{
+    padding: 0.8rem;
+    font-size: 1.3rem;
+    color: #4B4B4B;
+    font-weight: 500;
+    border-bottom: 0.48px solid #4B4B4B;
+}
+.wrapper>p:last-child{
+    border-bottom: unset;
+}
+.wrapper>p:nth-child(2){
+    padding-top: 2rem;
+}
+.wrapper>p:first-child{
+    border-bottom: unset;
+    position:absolute;
+    top: 0;
+    right: 10px;
+    padding-top: 1rem;
+}

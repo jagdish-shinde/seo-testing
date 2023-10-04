@@ -1,0 +1,33 @@
+.mobileImage{
+    margin-top: 1rem;
+}
+.smallImg{
+    width: 11rem;
+}
+.imgWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:1rem;
+    margin-top: 1rem;
+}
+.mainWrapper{
+    padding-bottom: 1rem;
+}
+.desktopImage{
+    display: none !important;
+}
+@media screen and (min-width: 1024px){
+    .mobileImage{
+        display: none !important;
+    }
+    .desktopImage{
+        display: block !important;
+    }
+    .mainWrapper{
+        padding-top: 1rem;
+    }
+    .smallImg{
+        width: 26rem;
+    }
+}

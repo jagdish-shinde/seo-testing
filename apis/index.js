@@ -1,0 +1,1 @@
+export {getPageDetails} from '././college/getPageDetails'

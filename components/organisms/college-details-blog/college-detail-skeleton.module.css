@@ -1,0 +1,42 @@
+.mainWrapper{
+    padding: 0rem 0.3rem;
+}
+.logo{
+    width: 8.52rem;
+    height: 8.125rem;
+}
+.logoWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.collegeName{
+    width: 90%;
+    margin-top: 1rem;
+}
+.dropdown{
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.overview{
+    width: 40%;
+}
+.table{
+    width: 90%;
+    margin-top: 1.2rem;
+}
+@media screen and (min-width:1024px) {
+    .dropdown{
+        display: none;
+    }
+    .logo{
+        width: 10rem;
+        height: 10rem;
+    }
+    .collegeName{
+        width: 60%;
+    }
+}

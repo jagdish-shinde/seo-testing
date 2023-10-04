@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  font-family: Inter;
 }
 
 body {
@@ -53,7 +54,9 @@ ul li{
 blockquote, q {
 	quotes: none;
 }
-
+hr{
+  opacity: 0.5;
+}
 a {
   text-decoration: none;
   color: #FFF;
@@ -81,6 +84,48 @@ button:hover{
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+
+
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter/Inter-Light.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter/Inter-Regular.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter/Inter-Medium.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter/Inter-Bold.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('/fonts/Inter/Inter-ExtraBold.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
 }
 
 :root {
@@ -114,7 +159,7 @@ button:hover{
 }
 
 .section-padding {
-  padding: 0 calc(20vw / var(--global-scale-factor-mobile));
+  padding: 0 16px;
 }
 .section-padding-sm {
   padding: 0 calc(16vw / var(--global-scale-factor-mobile));
@@ -137,18 +182,44 @@ button:hover{
 .grecaptcha-badge { 
   visibility: hidden;
 }
+.smooth-scroll {
+  scroll-behavior: smooth;
+  transition: transform 0.5s ease-in-out; /* Customize transition properties as needed */
+}
+::-webkit-scrollbar {
+  width: 4px;
+  padding-top: 2px; 
+  overflow: auto;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #dde4e9; /* Customize the thumb color */
+  border-radius: 10px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a7aeb3 transparent;
+}
+*:hover {
+  scrollbar-color: #aeb9c0 #f0f0f0;
+}
 
 @media screen and (min-width: 1024px) {
   html {
     font-size: 20px;
+    font-family: Inter;
   }
 
   .section {
     flex-direction: row;
   }
 
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    transition: transform 4s ease-in-out; /* Customize transition properties as needed */
+}
+
   .section-padding {
-    padding: 0 calc(210vw / var(--global-scale-factor-desktop));
+    padding: 0 170px;
   }
   .section-padding-sm {
     padding: 0 calc(170vw / var(--global-scale-factor-desktop));
@@ -157,6 +228,22 @@ button:hover{
   .gradientText{
     font-size: calc(44rem/24);
     line-height: calc(56rem/24);
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    padding-top: 2px; 
+    overflow: auto;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #f5f5f5; /* Customize the thumb color */
+    border-radius: 10px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #a7aeb3 transparent;
+  }
+  *:hover {
+    scrollbar-color: #aeb9c0 #f0f0f0;
   }
 }
 

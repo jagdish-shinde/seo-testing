@@ -1,0 +1,7 @@
+@media screen and (min-width: 1024px) {
+    .mainWrapper{
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+}
