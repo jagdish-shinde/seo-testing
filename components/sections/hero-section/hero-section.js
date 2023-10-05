@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Fragment, useEffect, useState } from 'react'
-import {downArrow  } from '../../../public'
+import {blurImg, downArrow  } from '../../../public'
 import { Header, NavigationDialog } from '../../molecules'
 import styles from './hero-section.module.css'
 import {facilitiesWithIcon} from "../../../util/constants"
@@ -50,7 +50,9 @@ export function HeroSection({heroSectionData}){
                                 width = "100%"
                                 height="100%"
                                 objectFit='fill'
-                                layout='fill'                        
+                                layout='fill' 
+                                placeholder='blur'
+                                blurDataURL={blurImg}                       
                             />
                         </div>
                     </div>

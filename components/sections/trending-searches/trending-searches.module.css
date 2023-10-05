@@ -67,7 +67,19 @@
 .trendingImgWrapper::-webkit-scrollbar-track {
     background-color: #FFE9E9;
 }
-
+.logoImgWrapper{
+    background-color: white;
+    composes:image;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 9rem;
+    height: 9rem;
+    position: relative;
+    display:block;
+}
 @media screen and (min-width: 1024px) {
     .mainWrapper>h1{
         font-size: 1.4rem;
@@ -91,5 +103,9 @@
         font-style: normal;
         font-weight: 400;
         line-height: 2rem;
+    }
+    .logo{
+        width: 15rem;
+        height: 10rem;
     }
 }
