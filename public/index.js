@@ -38,6 +38,7 @@ import leftNavigate from "./svgs/leftNavigate.svg"
 import bits from "./images/bits.png"
 import thiru from "./images/thiruvantpuram.png"
 import iit from "./images/iit lucknow.png"
+import blurImg from "./images/blur.jpg"
 export  {
     logo,
     fstLogo,
@@ -70,5 +71,6 @@ export  {
     railway,
     rightNavigate,
     leftNavigate,
-    bits,thiru,iit
+    bits,thiru,iit,
+    blurImg
 }

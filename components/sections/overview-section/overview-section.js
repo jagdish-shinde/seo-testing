@@ -5,6 +5,7 @@ import styles from "./overview-section.module.css"
 export function OverviewSection({data}){
     const router = useRouter()
     const {query , push} = router || {}
+    const {slug,preview=false} = query || {}
     const {
         city = '',
         state = '',
@@ -26,7 +27,7 @@ export function OverviewSection({data}){
     function handleClick(){
         push({
             pathname : '/blog/college-gallery',
-            query : {slug:query?.slug}
+            query : {slug,preview}
         })
     }
     return(

@@ -15,13 +15,13 @@ export function CollegeGalleryComponent() {
     const [currentIdx,setCurrentIdx] = useState(0)
     const [isLoading,setIsLoading] = useState(false)  
     const [images,setImages]   = useState([])
-    const {slug} = query || {}
+    const {slug,preview=false} = query || {}
     const [collegeName,setcollegeName] = useState('')
     async function getCollegePageDetails(){
         try{
             setIsLoading(true)
-            const data = await getPageDetails({slug})
-            if(Array.isArray(data)) {
+            const data = await getPageDetails({slug,preview})
+            if(!data) {
                 push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
                 return
             }
@@ -67,7 +67,8 @@ export function CollegeGalleryComponent() {
 
     function handleRedirect(){
         push({
-            pathname:`/blog/${slug}`
+            pathname:`/blog/${slug}`,
+            query:{preview}
         })
     }
     return(

@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { getPageDetails } from "../../../apis"
+import { getPageDetails, getTopVisitiedColleges } from "../../../apis"
 import { getCapitalFirstLetter } from "../../../util/helper"
 import { AboutSection, CoursesAndCampusSection, FooterSection, HeroSection, ModeOfAdmissionAndFeeSection, OverviewSection, PlacementsSection, RankingSection, ReachConnectivitySection, TrendingSearches } from "../../sections"
 import { CollegeDetailSkeleton } from "./college-detail-skeleton"
@@ -20,7 +20,9 @@ export function CollegeDetailsBlogComponent(){
     const [isLoading,setIsLoading] = useState(false)
     const [description,setDescription] = useState('')
     const {query,isReady,push} = useRouter()
-    const {slug,preview=''} = query || {}
+    const [topVisitedColleges,setTopVisitedColleges] = useState([])
+    const {slug,preview=false} = query || {}
+
 
     useEffect(()=>{
         if(!isReady) return
@@ -35,7 +37,7 @@ export function CollegeDetailsBlogComponent(){
         try{
             setIsLoading(true)
             const data = await getPageDetails({slug,preview})
-            if(Array.isArray(data)) {
+            if(!data) {
                 push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
                 return
             }
@@ -97,6 +99,28 @@ export function CollegeDetailsBlogComponent(){
         }
     }
 
+    async function getTopVisitCollege(){
+        try{
+            const data = await getTopVisitiedColleges({slug,preview})
+            if(data?.length){
+                const topCollegeData = []
+                data.forEach((collegeData)=>{
+                    const {colleges=[],slug=''} = collegeData || {}
+                    const {desktopImage='',name='',city='',state='',logo=''} = colleges[0] || {}
+                    topCollegeData.push({desktopImage,name,city,state,slug,logo})
+                })
+                setTopVisitedColleges(topCollegeData)
+            }
+        }catch(error){
+            console.log(error?.message)
+        }
+    }
+
+    useEffect(()=>{
+        if(!isReady || !slug) return  
+        getTopVisitCollege();
+    },[isReady])
+
     function isPlacementSectionVisible(){
         const {placementExplanation2023,placementPercentage2023,topCompanies2023} = placementDataFor2023 || {}
         const {placementExplanation2022,placementPercentage2022,topCompanies2022} = placementDataFor2022 || {}
@@ -125,7 +149,7 @@ export function CollegeDetailsBlogComponent(){
                 <OverviewSection data={overviewSectionData}/>
                 <ReachConnectivitySection data={connectivityData}/>
                 <RankingSection data={ranking}/>
-                {/* <TrendingSearches/> */}
+                {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges}/>}
                 <CoursesAndCampusSection data={coursesAndCampusData}/>
                 <ModeOfAdmissionAndFeeSection modeOfAdmission={modeOfAdmission} hostelFeeAndCourses = {hostelFeeAndCourses} collegeName = {heroSectionData?.name}/>
                 {isPlacementSectionVisible() && <PlacementsSection placementDataFor2022={placementDataFor2022} placementDataFor2023={placementDataFor2023}/>}
