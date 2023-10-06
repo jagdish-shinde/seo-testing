@@ -1,0 +1,18 @@
+.btn{
+    color: #1B49EA;
+    display: flex;
+    width: 100%;
+    font-family: Inter;
+    text-decoration-line: underline;
+    background-color: inherit;
+    justify-content: center;;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+}  
+@media screen and (min-width: 1024px) {
+    .btn{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}

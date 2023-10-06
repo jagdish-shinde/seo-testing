@@ -2,6 +2,8 @@
     padding-top: 1.19rem;
     padding-bottom: 0.87rem;
     background: #F5F9FE;
+    padding: 1.13rem 3.19rem 3.19rem 1rem;
+    margin-bottom: 2rem;
 }
 .logoWrapper{
     width: 9.48213rem;
@@ -10,7 +12,7 @@
     display: block;
     cursor: pointer;
 }
-.offering>h1{
+.offering>h5{
     color: #1D252D;
     font-family: Inter;
     font-size: 0.875rem;
@@ -28,7 +30,7 @@
     font-weight: 500;
     line-height: 1.3rem;
 }
-.socialFollow>div>h1{
+.socialFollow>div>h5{
     color: #1D252D;
     font-family: Inter;
     font-size: 0.875rem;
@@ -44,6 +46,7 @@
     position: relative;
     cursor: pointer;
     transition: transform 0.4s ease-in-out;
+    margin-top: 0.5rem;
 }
 .socialIcon:hover{
     transform: translatey(-0.2rem);
@@ -51,14 +54,12 @@
 .iconWrapper{
     display: flex;
     gap:0.58rem;
-    margin-top: 0.69rem;
 }
 .footerBtns{
-    display: flex;
-    gap: 0.4rem;
     margin-top: 1.12rem;
 }
-.footerBtnText{
+.footerBtns p{
+    display: inline;
     color: #1D252D;
     font-family: Inter;
     font-size: 0.75rem;
@@ -66,6 +67,7 @@
     font-weight: 400;
     line-height: 1.5rem;
     cursor: pointer;
+    margin-right: 0.4rem;
 }
 .footerBtns>p:nth-child(6){
     display: none;
@@ -75,6 +77,8 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
+        padding: 1.9rem 8.5rem 2rem 8.5rem;
+        margin-bottom: 0;
     }
     .logoWrapper{
         width: 10rem;
@@ -82,7 +86,7 @@
         border-radius: 0.1rem;
         border: 1px solid rgba(42, 40, 156, 0.80);
     }
-    .offering>h1{
+    .offering>h5{
         font-weight: 700;
         font-size: 1rem;
         font-style: normal;
@@ -92,7 +96,7 @@
         font-style: normal;
         font-weight: 500;
     }
-    .socialFollow>div>h1{
+    .socialFollow>div>h5{
         font-size: 0.8rem;
         font-style: normal;
         font-weight: 600;

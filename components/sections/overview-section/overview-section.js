@@ -2,9 +2,13 @@ import { useRouter } from "next/router"
 import { degrees } from "../../../util/constants"
 import { getCapitalFirstLetter } from "../../../util/helper"
 import styles from "./overview-section.module.css"
+import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atoms"
+import { SLUG_PAGES } from "../../../util/constants"
+import { useRecoilState } from "recoil"
 
 export function OverviewSection({data}){
     const router = useRouter()
+    const [currentPage, setCurrentPage] = useRecoilState(currentSlugPageAtom)
     const {query , push} = router || {}
     const {slug,preview=false} = query || {}
     const {
@@ -27,8 +31,7 @@ export function OverviewSection({data}){
     ]
     function handleClick(){
         push({
-            pathname : '/blog/college-gallery',
-            query : {slug,preview}
+            pathname : `/blog/${slug}-photo-gallery`,
         })
     }
     return(
