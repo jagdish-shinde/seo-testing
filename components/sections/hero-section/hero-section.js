@@ -7,11 +7,17 @@ import {facilitiesWithIcon} from "../../../util/constants"
 import { getCapitalFirstLetter } from '../../../util/helper'
 import * as amplitude from '@amplitude/analytics-browser';
 
-export function HeroSection({heroSectionData}){
+export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
     const [selectedValue,setSelectedValue] = useState("Quick navigation")
     const [isDialogOpen,setIsDialogOpen] = useState(false)
     const {name='',logo='',desktopImage='',mobileImage=''} = heroSectionData || {}
-
+    const updatedFacilities = []
+    facilitiesWithIcon.forEach(facility=>{
+        if(facility?.heading=="Placements" && !isPlacementSectionVisible){
+            return
+        }
+        updatedFacilities.push(facility)
+    })
     function handleScroll(path,keyVl="desktop",value=''){
         const targetSection = document.querySelector(path);
         amplitude.track('SEO_NAVIGATE_COLLEGE_PAGE', {
@@ -60,7 +66,7 @@ export function HeroSection({heroSectionData}){
                     <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
                 </div>
                 <div className={styles.facilitiesWrapper}>
-                    {facilitiesWithIcon.map(({icon,heading,id},index)=>
+                    {updatedFacilities.map(({icon,heading,id},index)=>
                         <div className={styles.facility} onClick={()=>{handleScroll(id)}} key={index}>
                             <div className={styles.facilityIcon}>
                                 <Image 
@@ -111,7 +117,7 @@ export function HeroSection({heroSectionData}){
             </div>
             <NavigationDialog 
                 isOpen={isDialogOpen}
-                options={facilitiesWithIcon}
+                options={updatedFacilities}
                 handleOnItemClick={handleScroll}
                 setIsDialogOpen = {setIsDialogOpen}
             />

@@ -25,7 +25,7 @@ export function FooterSection(){
                     {fstOfferings.map((offering,index)=><p key={index}>{offering}</p>)}
                 </div>
             </div>
-            <div className={styles.offeringsAndSocialIcons}>
+            {/* <div className={styles.offeringsAndSocialIcons}>
                 <div className={styles.socialFollow}>
                     <div>
                         <h1>Follow us on</h1>
@@ -55,7 +55,7 @@ export function FooterSection(){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

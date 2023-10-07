@@ -62,8 +62,8 @@
     margin-top: 0.4rem;
 }
 .campusImg{
-    width: 11rem;
-    height: 10rem;
+    width: 8rem;
+    height: 7rem;
     border-radius: 6px;
     position: relative;
     display: block;
@@ -81,6 +81,27 @@
     gap:1rem;
     margin-top: 1rem;
     justify-content: space-between;
+}
+.imagesContainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    grid-column-gap: 0.5rem;
+    margin-top: 1rem;
+}
+.image{
+    position: relative;
+    display: block;
+    margin-bottom: 0.7rem;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.image:hover{
+    transform: translateY(-0.3rem);
+    z-index: 2;
 }
 @media screen and (min-width:1024px) {
     .logo{
@@ -120,5 +141,12 @@
     }
     .mainWrapper{
         padding: 0rem 6rem 2rem 6rem;
+    }
+    .imagesContainer{
+        grid-column-gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    .image{
+        margin-bottom: 0.9rem;
     }
 }

@@ -114,7 +114,7 @@
 .facilitiesIconWrapper{
     display: flex;
     flex-wrap: wrap;
-    gap: 1.88rem;
+    gap: 2.1rem;
     border: 1px solid #6F85C6;
     border-radius: 8px;
     padding: 1.5rem;
@@ -133,7 +133,7 @@
     padding: 0.4rem 0.2rem;
     position: absolute;
     margin-top: 0.5rem;
-    width: 4.7rem;
+    width: 6rem;
 }
 .iconText::before {
     content: '';
@@ -218,6 +218,7 @@
         border: unset;
         padding: 1rem;
         justify-content: space-around;
+        gap:1.88rem;
     }
     .iconWrapper{
         width: 4rem;
@@ -242,13 +243,13 @@
         padding: 0.4rem 0.2rem;
         position: absolute;
         margin-top: 0.5rem;
-        width: 4.8rem;
+        width: 7rem;
     }
     .iconText::before {
         content: '';
         position: absolute;
         top: -77%;
-        left: 40%;
+        left: 30%;
         transform: translateX(-50%);
         border-width: 11px;
         border-style: solid;

@@ -3,7 +3,7 @@ import { cookie } from "./cookies";
 
 function getAxios() {
     const axiosInstance = axios.create({
-        baseURL: process.env.NEXT_PUBLIC_SEO_BACKEND_URL,
+        baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
     });
 
 

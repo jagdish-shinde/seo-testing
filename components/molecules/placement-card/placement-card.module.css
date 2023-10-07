@@ -31,7 +31,8 @@
     font-weight: 500;
     line-height: 1rem;
     border-radius: 6px;
-    text-align: center;
+    padding-left: 1rem;
+    cursor: pointer;
 }
 .wrapper>h3{
     color: #1D252D;
@@ -46,6 +47,7 @@
     border-radius: 6px;
     margin-top: 0.75rem;
     text-align: center;
+    cursor: pointer;
 }
 .wrapper>h3>span{
     color: #1B49EA;
@@ -55,6 +57,7 @@
     display: flex;
     gap:1.25rem;
     margin-top: 0.75rem;
+    cursor: pointer;
 }
 .packageText{
     border-radius: 0.375rem;
@@ -98,6 +101,7 @@
     border: 1px solid #E8EBFC;
     border-radius: 6px;
     padding: 0.75rem;
+    cursor: pointer;
 }
 .topRecruiters>p:nth-child(1){
     color: #1D252D;
@@ -134,6 +138,7 @@
         font-weight: 400;
         line-height: 1.35855rem;
         padding: 0.6rem;
+        padding-left: 1.5rem;
     }
     .wrapper>h3{
         font-family: Inter;

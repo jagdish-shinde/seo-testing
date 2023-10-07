@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import { degrees } from "../../../util/constants"
 import { getCapitalFirstLetter } from "../../../util/helper"
 import styles from "./overview-section.module.css"
 
@@ -21,7 +22,7 @@ export function OverviewSection({data}){
         {keyName : "Location" , value : `${getCapitalFirstLetter(city)}, ${getCapitalFirstLetter(state)}`},
         {keyName : "Established In" , value : establishedIn},
         {keyName : "Institute Type" , value : getCapitalFirstLetter(instituteType)},
-        {keyName : `Courses (${getCapitalFirstLetter(courseDegree)})` , value : coursesOffered?.length},
+        {keyName : `Courses (${getCapitalFirstLetter(degrees[courseDegree])})` , value : coursesOffered?.length},
         {keyName : "FunctionUp Rating",value:functionupRating}
     ]
     function handleClick(){
