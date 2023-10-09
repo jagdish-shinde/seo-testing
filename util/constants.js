@@ -37,7 +37,7 @@ export const footerBtns = [
     {text:"Site Map © 2022 FunctionUp. All rights reserved.",link:""}
 ]
 export const fstOfferings =[
-    "FunctionUp Data science, AI& ML",
+    "FunctionUp Data science, AI & ML",
     "FunctionUp Full Stack Development",
     "FunctionUp School of Technology"
 ]
