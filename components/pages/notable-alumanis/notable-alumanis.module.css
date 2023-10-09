@@ -1,0 +1,94 @@
+.mainWrapper{
+    width: 100%;
+    overflow-x: hidden;
+}
+.headerStyle{
+    background: #2A289C;
+}
+.collegeDetailsConatiner{
+    display: flex;
+    justify-content: center;
+}
+.collegeWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.63rem;
+    width: 16.1875rem;
+    margin-top: -0.7rem;
+}
+.collegeLogo{
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    margin-bottom: 0.31rem;
+    display: flex;
+    justify-content: center;
+}
+.collegeName{
+    color: #363D43;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.backBtn{
+    margin-top: 0.87rem;
+}
+.alumniSection{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(9.875rem, 1fr));
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    margin: 0 1rem;
+    row-gap: 1.7rem;
+    margin-bottom: 2.64rem;
+
+    @media (max-width: 340px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media screen and (min-width: 1024px){
+    .mainWrapper{
+        padding: 0 8.5rem;
+    }
+    .headerStyle{
+        min-height: 4.8rem;
+    }
+    .alumniSection{
+        margin: 0;
+        margin-bottom: 3.55rem; 
+        column-gap: 2.25rem;
+        row-gap: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+    }
+    .backBtn{
+        margin-top: 1.3rem;
+    }
+    .collegeWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3.8rem;
+        width: 44.2rem;
+        margin-top: -0.7rem;
+    }
+    .collegeLogo{
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: 1.68rem;
+    }
+    .collegeName{
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+}

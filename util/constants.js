@@ -34,7 +34,7 @@ export const socialIconWithLink =[
 export const footerBtns = [
     {text : "Terms",link:""},
     {text: "Privacy",link:""},
-    {text:"Site Map © 2022 FunctionUp. All rights reserved.",link:""}
+    {text:"Site Map © 2022 FunctionUp All rights reserved.",link:""}
 ]
 export const fstOfferings =[
     "FunctionUp Data science, AI & ML",
@@ -45,4 +45,10 @@ export const fstOfferings =[
 export const degrees = {
     be: "BE",
     btech : "B.Tech"
+}
+export const WHATSAPP_COMMUNITY_GROUP_LINK = "https://chat.whatsapp.com/IyugFrmgnL4ClG2vUfwzlc"
+export const SLUG_PAGES = {
+    notableAlumni: '-notable-alumni',
+    photoGallery: "-photo-gallery",
+    college: "college",
 }

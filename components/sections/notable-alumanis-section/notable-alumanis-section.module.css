@@ -1,0 +1,49 @@
+.mainWrapper{
+    margin-top: 1.94rem;
+}
+.mainWrapper h3{
+    color: #1D252D;
+    text-align: center;
+    font-size: calc(22rem/16);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-bottom: 0.56rem;
+    border-bottom: solid #D3D3D3 1px;
+    margin-bottom: 1.56rem;
+    display: flex;
+    justify-content: center;
+}
+.scroller{
+    margin-bottom: 1.14rem;
+}
+.scroller >*{
+    margin-right: 0.75rem;
+    max-width: 9.875rem;
+}
+.scrollerWrapper{
+    padding: 0 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .mainWrapper{
+        margin-top: 4.05rem;
+    }
+    .mainWrapper h3{
+        font-size: 1.6rem;
+        font-weight: 700;
+        padding-bottom: 1.7rem;
+        margin-bottom: 3.9rem;
+    }
+    .scrollerWrapper{
+        margin: 0 8.5rem;
+        overflow-y: visible;
+    }
+    .scroller{
+        overflow-y: visible;
+    }
+    .scroller >*{
+        margin-right: 2.25rem;
+        max-width: 14rem;
+    }
+}

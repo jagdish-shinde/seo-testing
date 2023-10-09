@@ -46,7 +46,7 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
         <section className={`${styles.mainWrapper} ${desktopImage ? styles.backgroundImage : ""}`} 
             style={desktopImage ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${desktopImage})` } : {background:"#2A289C"}}
             >
-            <Header/>
+            <Header pageTitle={name} collegeName={name}/>
             <div className={styles.wrapper}>
                 <div className={styles.collegeNameAndLogoWrapper}>
                     <div className={styles.logoWrapper}>
@@ -89,7 +89,7 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
             style={mobileImage ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${mobileImage})` } : {background:"#2A289C"}}
 
         >
-            <Header/>
+            <Header pageTitle={name} collegeName={name}/>
             <div className={styles.mobileWrapper}>
                 <div className={styles.collegeNameAndLogoWrapper}>
                     <div className={styles.logoWrapper}>

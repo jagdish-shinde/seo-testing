@@ -1,0 +1,97 @@
+.profileCardWrapper{
+    min-width: 9.875rem;
+    width: auto;
+    flex-shrink: 0;
+    background-color: #F1F6FA;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.imageContainer{
+    min-width: 9.875rem;
+    width: auto;
+    min-height: 7.9rem;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.infoContainer{
+    height: auto;
+    padding: 0.64rem 0.3rem;
+}
+.userName{
+    color: #1D252D;
+    text-align: center;
+    font-family: Gilroy-Bold;
+    font-size: 0.56431rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.careerDetails{
+    color: #1D252D;
+    text-align: center;
+    font-family: Gilroy-Medium;
+    font-size: 0.49375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.16rem;
+}
+.batchDetails{
+    color: #666876;
+    text-align: center;
+    font-family: Gilroy-SemiBold;
+    font-size: 0.4585rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.16rem;
+}
+.salary{
+    color: #1A35C8;
+    text-align: center;
+    font-family: Gilroy-ExtraBold;
+    font-size: 0.49375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.16rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .profileCardWrapper{
+        width: 14rem;
+        height: auto;
+    }
+    .imageContainer{
+        width: 14rem;
+        min-height: 11.2rem;
+        max-height: 11.2rem;
+        position: relative;
+        display: block;
+    }
+    .infoContainer{
+        height: auto;
+        padding: 0.9rem 0.3rem;
+    }
+    .userName{
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    .careerDetails{
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin-top: 0.2rem;
+    }
+    .batchDetails{
+        font-size: 0.65rem;
+        font-weight: 400;
+        margin-top: 0.3rem;
+    }
+    .salary{
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin-top: 0.35rem;
+    }
+}

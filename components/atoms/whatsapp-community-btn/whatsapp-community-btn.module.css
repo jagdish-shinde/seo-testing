@@ -1,0 +1,44 @@
+.mainContainer{
+    min-width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.11rem 1.38rem 0.63rem 1.38rem;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    filter: drop-shadow(0px -4px 4px rgba(102, 102, 102, 0.20));
+    background-color: #FFF;
+}
+.btnWrapper{
+    width: 19.75rem;
+    height: 3.01738rem;
+    border-radius: 4px;
+    background-color: #2AB318;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.09725rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background-color: inherit;
+    margin-right: 0.63rem;
+}
+.whatsappImageContainer{
+    width: 1.64581rem;
+height: 1.64581rem;
+}
+
+@media screen and (min-width: 1024px){
+    .mainContainer{
+        display: none;
+    }
+}

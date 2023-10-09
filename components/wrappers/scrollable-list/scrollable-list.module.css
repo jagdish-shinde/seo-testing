@@ -1,0 +1,112 @@
+.scrollableList {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.scrollableList::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollableList > :first-child{
+    margin-left: calc(20vw / var(--global-scale-factor-mobile));
+}
+
+.scrollableList > * {
+    flex: 0 0 auto;
+    scroll-snap-align: none center;
+}
+
+.dotContainer{
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #727888;
+    margin-right: 4px;
+}
+
+.selectedDot{
+    composes:dot;
+    background-color: var(--global-primary-color-three);
+}
+
+.arrow{
+    display: none;
+}
+
+@media screen and (min-width: 1024px)  {
+    .wrapper {
+        position: relative;
+    }
+
+    .arrow{
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+        top: calc(50% - 1rem);
+        display: block;
+        box-shadow: 0px 1px 34px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        cursor: pointer;
+        border: 1px solid rgba(116, 125, 132, 0.1);
+        box-shadow: 0px 1px 34px rgba(0, 0, 0, 0.1);
+    }
+
+    .leftArrow{
+        composes:arrow;
+        left: -3rem;
+    }
+
+    .rightArrow{
+        composes:arrow;
+        right: -3rem;
+    }
+
+    .disabledArrow{
+        display: none;
+    }
+
+    .leftArrow::before {
+        content: "\276E";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: 0.8rem;
+        color: #747D84;
+        margin-top: 5%;
+    }
+
+    .rightArrow::before {
+        content: "\276F";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: 0.8rem;
+        color: #747D84;
+        margin-top: 5%;
+    }
+    .scrollableList > * {
+        flex-grow: 1;
+    }
+
+    .scrollableList > :first-child{
+        margin-left: 0;
+    }
+
+    .dotContainer{
+        display: none;
+    }
+}
