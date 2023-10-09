@@ -31,7 +31,7 @@
 .trendingImgWrapper{
     display: flex;
     overflow: auto;
-    gap:2rem;
+    gap:1.3rem;
 }
 .collegeImgAndNameWrapper>h2{
     margin-top: 1rem;
@@ -88,18 +88,21 @@
     .trendingImgWrapper{
         padding-left: 5rem;
         padding-right: 5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minMax(5rem,1fr));
+        grid-column-gap: 1rem;
     }
     .image{
-        width: 27.15rem;
-        height: 14.6rem;
+        height: 13rem;
+        width: 100%;
     }
     .collegeImgAndNameWrapper>h2{
-        font-size: 1rem;
+        font-size: 0.85rem;
         font-style: normal;
         font-weight: 500;
     }
     .collegeImgAndNameWrapper>p{
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-style: normal;
         font-weight: 400;
         line-height: 2rem;

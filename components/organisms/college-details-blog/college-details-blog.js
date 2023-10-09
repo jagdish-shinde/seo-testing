@@ -145,7 +145,7 @@ export function CollegeDetailsBlogComponent(){
                 <title>{getCapitalFirstLetter(heroSectionData?.name)}</title>
             </Head>
             <div className={`${styles.mainWrapper}`}>
-                <HeroSection heroSectionData={heroSectionData}/>
+                <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()}/>
                 <OverviewSection data={overviewSectionData}/>
                 <ReachConnectivitySection data={connectivityData}/>
                 <RankingSection data={ranking}/>

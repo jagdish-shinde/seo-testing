@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getPageDetails } from "../../../apis";
-import { flask, leftNavigate, rightNavigate } from "../../../public";
+import { blurImg, flask, leftNavigate, rightNavigate } from "../../../public";
 import { Header } from "../../molecules";
 import { CollegeGallerySkeleton } from "./college-gallery-skeleton";
 import styles from "./college-gallery.module.css"
@@ -17,6 +17,8 @@ export function CollegeGalleryComponent() {
     const [images,setImages]   = useState([])
     const {slug,preview=false} = query || {}
     const [collegeName,setcollegeName] = useState('')
+    const [imageDomensions, setImageDomensions] = useState({width: 0, height: 0})
+
     async function getCollegePageDetails(){
         try{
             setIsLoading(true)
@@ -47,6 +49,23 @@ export function CollegeGalleryComponent() {
         }
         getCollegePageDetails();
     },[isReady])
+
+
+  useEffect(() => {
+    function handleResize() {
+      const windowWidth = window?.innerWidth  
+      const padding =   window?.innerWidth < 1024 ? 20 : 126
+      setImageDomensions({
+        width : (windowWidth - (2 * padding))/2,
+        height : ((windowWidth - (2 * padding))/2)/2
+      })
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
     function handleClick(type){
         if(type == "right"){
@@ -108,15 +127,17 @@ export function CollegeGalleryComponent() {
                     {images?.length>1 && <div className={styles.btnsWrapper}>
                         {images.map((dot,index)=><div className={styles.dot} style={{backgroundColor : index== currentIdx ? "blue" : "rgb(126, 125, 125)"}} key={index}></div>)}
                     </div>}
-                        {images?.length>1 &&  <div className={styles.campusImageWrapper}>
+                        {images?.length>1 &&  <div className={styles.imagesContainer}>
                             {images.map((image,index)=>
-                                <div className={styles.campusImg} key={index}>
+                                <div className={styles.image} key={index} style={{width:imageDomensions?.width,height:imageDomensions?.height}}>
                                     <Image 
                                         src={image}
                                         width="100%"
                                         height="100%"
                                         objectFit="fill"
                                         layout="fill"
+                                        placeholder='blur'
+                                        blurDataURL={blurImg}
                                     />
                                 </div>
                             )}

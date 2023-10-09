@@ -41,3 +41,8 @@ export const fstOfferings =[
     "FunctionUp Full Stack Development",
     "FunctionUp School of Technology"
 ]
+
+export const degrees = {
+    be: "BE",
+    btech : "B.Tech"
+}
