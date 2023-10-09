@@ -22,7 +22,7 @@ export function ModeOfAdmissionAndFeeSection({modeOfAdmission=[],hostelFeeAndCou
                             </div>
                         )}
                     </div>}
-                    {hostelFee && <h2>Hostel Fee Per Semester will be approx Rs {hostelFee} per month.</h2>}
+                    {hostelFee && <h2>Hostel Fee Per Semester will be approx Rs. {hostelFee}/-</h2>}
                     {!hostelFee && <h2>Hostel Fees of {collegeName} is not available at the moment.</h2>}
                 </div>
         </section>

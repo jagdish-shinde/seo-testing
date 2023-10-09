@@ -142,7 +142,7 @@ export function CollegeDetailsBlogComponent(){
     return(
         <main>
             <Head>
-                <title>{getCapitalFirstLetter(heroSectionData?.name)}</title>
+                <title>{`${getCapitalFirstLetter(heroSectionData?.name)}: Placements, Ranking, Courses, Alumni, Photos Admissions in 2024`}</title>
             </Head>
             <div className={`${styles.mainWrapper}`}>
                 <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()}/>
