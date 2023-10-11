@@ -1,4 +1,4 @@
-import { about, admission, ambulance, atm, bed, book, boy, campus, computer, connectivity, courses, facebook, fees, firstAid, flask, football, girl, instagram, linkdin, manWithBag, peoples, placement, plane, rank, spoonAndFork, train, twitter, youtube } from "../public";
+import { about, admission, ambulance, atm, bed, book, boy, building, campus, computer, connectivity, courses, degree, eligibility, facebook, fees, firstAid, flask, football, futureGraph, girl, handShake, instagram, linkdin, manWithBag, peoples, placement, plane, rank, spoonAndFork, train, twitter, youtube } from "../public";
 
 export const facilitiesWithIcon = [
     {icon : connectivity, heading : "Connectivity",id:"#connectivity"},
@@ -11,6 +11,13 @@ export const facilitiesWithIcon = [
     {icon : about, heading : "About",id:"#about"},
 ]
 
+export const degreeNavigationIcons = [
+    {icon : degree, heading : "About Degree",id:"#aboutDegree"},
+    {icon : futureGraph, heading : "Future Scope",id:"#futureScope"},
+    {icon : building, heading : "Top recruiters",id:"#topRecruiter"},
+    {icon : eligibility, heading : "Eligibility",id:"#eligibility"},
+    {icon : handShake, heading : "Best Fit To",id:"#bestFit"},
+]
 export const facilitiesWithLogo = {
     "Laboratories" : flask,
     "Guest room" : bed,
@@ -51,6 +58,9 @@ export const SLUG_PAGES = {
     notableAlumni: '-notable-alumni',
     photoGallery: "-photo-gallery",
     college: "college",
+    degree:"degree"
 }
 
 export const SLUG_PREFIX = ["-placements-ranking-courses-alumni-photos-admissions", "-notable-alumni", "-photo-gallery"]
+
+export const DEGREE_NAME_SUFFIX = 'Scope, Admissions, Fees, Syllabus in 2024'

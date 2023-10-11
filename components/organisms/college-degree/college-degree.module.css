@@ -1,0 +1,92 @@
+.header{
+    background: linear-gradient(0deg, #2A289C 0%, #2A289C 100%);
+}
+.heroSection{
+    background: linear-gradient(0deg, #2A289C 0%, #2A289C 100%);
+    padding-top: 7rem;
+    padding-bottom: 1.44rem;
+}
+.degreeDetails{
+    color: #FFF;
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.4375rem;
+    margin-bottom: 5.5rem;
+}
+.degreeDetails>span{
+    text-transform: capitalize;
+}
+.containerHeading{
+    color: #1D252D;
+    text-align: center;
+    font-size: 1.65rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.containerHeading>span{
+    text-transform: capitalize;
+}
+.aboutDegreeWrapper{
+    padding-top: 3.06rem;
+}
+.containerInnerInfoText{
+    color: #4B4B4B;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4375rem;
+    margin-top: 1rem;
+}
+.sectionWrapper{
+    padding-top: 5rem;
+}
+.rowStyle>p:nth-child(1){
+    width: 60%;
+    text-transform: capitalize;
+}
+.rowStyle>p:nth-child(2){
+    width: 40%;
+    text-transform: capitalize;
+}
+.sectionWrapper:last-child{
+    margin-bottom: 6rem;
+}
+@media screen and (min-width:1024px) {
+    .heroSection{
+        padding: 11rem 15rem 2.4rem 15rem;
+    }
+    .degreeDetails{
+        font-size: 3.1rem;
+        line-height: normal;
+        margin-bottom: 4rem;
+    }
+    .containerHeading{
+        margin-bottom: 1.3rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+    .containerInnerInfoText{
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        font-weight: 400;
+        color: #4B4B4B;
+        line-height: 1.7rem;
+    }
+    .tableWrapper{
+        display: flex;
+        justify-content: center;
+    }
+    .table{
+        width: 60%;
+    }
+    .sectionWrapper{
+        padding-top: 5rem;
+    }
+    .sectionWrapper:last-child{
+        margin-bottom: 7rem;
+    }
+}

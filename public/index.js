@@ -44,6 +44,13 @@ import collegeShaalaLogo from "./svgs/collegeShaalaLogo.svg"
 import collegeShala from "./svgs/collegeShala.svg"
 import csTransparent from "./svgs/csTransparentLogo.svg"
 import csLogoWithFeather from "./svgs/csLogoWithFeather.svg"
+import degree from "./svgs/degree.svg"
+import futureGraph from "./svgs/futureGraph.svg"
+import building from "./svgs/building.svg"
+import eligibility from "./svgs/eligibility.svg"
+import handShake from "./svgs/handshake.svg"
+import degreeTrendSearch from "./svgs/degreeTrendSearch.svg"
+import childWithBook from "./svgs/childWithBook.svg"
 export  {
     logo,
     fstLogo,
@@ -82,5 +89,11 @@ export  {
     collegeShaalaLogo,
     collegeShala,
     csTransparent,
-    csLogoWithFeather
+    csLogoWithFeather,
+    degree,
+    futureGraph,
+    eligibility,
+    building,handShake,
+    degreeTrendSearch,
+    childWithBook
 }

@@ -1,3 +1,5 @@
 export {Header} from "./header/header"
 export {PlacementCard} from "./placement-card/placement-card"
 export {NavigationDialog} from "./navigation-dialog/navigation-dialog"
+export {ContentNavbar} from "./content-navbar/content-navbar"
+export {CommonDataTable} from "./common-info-table/common-info-table"

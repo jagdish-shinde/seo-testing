@@ -9,7 +9,8 @@ export function Header({
     customWrapperStyle,
     customLogoStyle,
     pageTitle,
-    collegeName
+    collegeName='',
+    degreeName=''
 }){
     const router = useRouter()
     function handleClick(){
@@ -18,8 +19,9 @@ export function Header({
     function handleJoinWhatsapp(){
         amplitude.track('SEO_JOINED_WA_COMMUNITY', {
             pageTitle,
-            collegeName,
-            navigateFrom: "whatsapp-community-desktop-header"
+            ...(collegeName && {collegeName}),
+            navigateFrom: "whatsapp-community-desktop-header",
+            ...(degreeName && {degreeName})
           });
         window.open(WHATSAPP_COMMUNITY_GROUP_LINK, "_blank")
     }

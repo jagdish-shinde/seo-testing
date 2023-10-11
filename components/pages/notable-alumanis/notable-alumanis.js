@@ -14,81 +14,56 @@ import * as amplitude from '@amplitude/analytics-browser';
 import WhatsappCommunityBtn from '../../atoms/whatsapp-community-btn/whatsapp-community-btn'
 import { NotableAlumaniSkelton } from './notable-alumni-skelton'
 
-function NotableAlumnis() {
-  const [alumniList, setAlumniList] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+function NotableAlumnis({data}) {
   const [collegeData, setCollegeData] = useState({collegeName:"", logo:""})
   const {query,isReady,push} = useRouter()
   let {slug, preview=false} = query || {}
 
-  async function getAlumaniDetails(){
-    try {
-      // const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.notableAlumni)
-      // const {alumniData, collegeDetails} = await getAlumniList(pageSlug) || {}
-      const {alumniData, collegeDetails} = await getPageDetails({slug : slug, preview}) || {}
-      amplitude.track('SEO_PAGE_VISIT', {
-        pageTitle : `${collegeDetails?.collegeName}: Notable Alumani's`,
-        collegeName : collegeDetails?.collegeName
-      });
-      if(!alumniData || !collegeDetails) {
-        console.log(alumniData)
-        // push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
-        return
-      }
-      setAlumniList(alumniData)
-      setCollegeData(collegeDetails)
-      setIsLoading(false)
-    } catch (error) {
-      push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
-    } 
-}
+  const {alumniData=[],collegeDetails={}} = data || {}
 
-useEffect(()=>{
-  if(!isReady) return
-  if(!slug) {
-      push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
-      return
-  }
+    useEffect(()=>{
+        if(!isReady) return
+        amplitude.track('SEO_PAGE_VISIT', {
+          pageTitle : `${collegeDetails?.collegeName}: Notable Alumani's`,
+          collegeName : collegeDetails?.collegeName
+        });
+    },[isReady])
 
-  getAlumaniDetails();
-},[isReady])
-  if(isLoading){
-    return ( <NotableAlumaniSkelton />)
-  }
+
   return (
     <Fragment>
-        <Header  customWrapperStyle={styles.headerStyle} pageTitle={`${collegeData?.collegeName}: Notable Alumni's`} collegeName={collegeData.collegeName}/>
+        <Header  customWrapperStyle={styles.headerStyle} pageTitle={`${collegeDetails?.collegeName}: Notable Alumni's`} collegeName={collegeDetails.collegeName}/>
         <Head>
-                <title>{`${collegeData.collegeName}: Notable Alumni`}</title>
+            <title>{`${collegeDetails?.collegeName}: Notable Alumni`}</title>
         </Head>
-    <main className={styles.mainWrapper}>
-        <div className={styles.backBtn}>
-            <BackNavigationButton />
-        </div>
-        <div className={styles.collegeDetailsConatiner}>
-          <div className={styles.collegeWrapper}>
-            <picture className={styles.collegeLogo}>
-                <Image 
-                  src={collegeData?.logo || ''}
-                  width={"100%"}
-                  height={"100%"}
-                  />
-            </picture>
-            <h1 className={styles.collegeName}>
-              {`${collegeData?.collegeName}: Notable Alumni's`}
-            </h1>
+      <main className={styles.mainWrapper}>
+          <div className={styles.backBtn}>
+              <BackNavigationButton />
           </div>
-        </div>
-        <section className={styles.alumanisPhotoContainer}>
-          <div className={styles.alumniSection}>
-            {alumniList.map( (alumni, index) => (
-              <ProfileCardV1 key={index} alumni={alumni}/>
-              ))}
+          <div className={styles.collegeDetailsConatiner}>
+            <div className={styles.collegeWrapper}>
+              <picture className={styles.collegeLogo}>
+                  <Image 
+                    src={collegeDetails?.logo || ''}
+                    width={"100%"}
+                    height={"100%"}
+                    />
+              </picture>
+              <h1 className={styles.collegeName}>
+                {`${collegeDetails?.collegeName}: Notable Alumni's`}
+              </h1>
+            </div>
           </div>
-        </section>
-    </main>
-    <FooterSection/>
-    <WhatsappCommunityBtn pageTitle={`${collegeData?.collegeName}: Notable Alumni's`} collegeName={collegeData?.collegeName}/>
+          <section className={styles.alumanisPhotoContainer}>
+            <div className={styles.alumniSection}>
+              {alumniData.map( (alumni, index) => (
+                <ProfileCardV1 key={index} alumni={alumni}/>
+                ))}
+            </div>
+          </section>
+      </main>
+      <FooterSection/>
+      <WhatsappCommunityBtn pageTitle={`${collegeDetails?.collegeName}: Notable Alumni's`} collegeName={collegeDetails?.collegeName}/>
     </Fragment>
   )
 }

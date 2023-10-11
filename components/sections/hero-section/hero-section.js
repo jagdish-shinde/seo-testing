@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Fragment, useEffect, useState } from 'react'
 import {blurImg, downArrow  } from '../../../public'
-import { Header, NavigationDialog } from '../../molecules'
+import { ContentNavbar, Header, NavigationDialog } from '../../molecules'
 import styles from './hero-section.module.css'
 import {facilitiesWithIcon} from "../../../util/constants"
 import { getCapitalFirstLetter } from '../../../util/helper'
@@ -69,23 +69,13 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                     <h2>{getCapitalFirstLetter(name)}</h2>
                     <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
                 </div>
-                <div className={styles.facilitiesWrapper}>
-                    {updatedFacilities.map(({icon,heading,id},index)=>
-                        <div className={styles.facility} onClick={()=>{handleScroll(id)}} key={index}>
-                            <div className={styles.facilityIcon}>
-                                <Image 
-                                    src={icon}
-                                    width="100%"
-                                    height="100%"
-                                    objectFit='fill'
-                                    layout='fill'
-                                />
-                            </div>
-                            <p>{heading}</p>
-                        </div>
-                     
-                    )}
-                </div>
+                <ContentNavbar
+                    data={updatedFacilities}
+                    handleClick = {handleScroll}
+                    isDialogOpen = {isDialogOpen}
+                    setIsDialogOpen = {setIsDialogOpen}
+                    selectedValue = {selectedValue}
+                />
             </div>
         </section>
 
@@ -109,23 +99,15 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                     <h2>{getCapitalFirstLetter(name)}</h2>
                     <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
                 </div>
-                <div className={styles.quickNavigation} onClick={()=>setIsDialogOpen(true)}>
-                    <p>{selectedValue}</p>
-                    <div>
-                        <Image
-                            src={downArrow}    
-                        />
-                    </div>
-                </div>
+                <ContentNavbar
+                    data={updatedFacilities}
+                    handleClick = {handleScroll}
+                    isDialogOpen = {isDialogOpen}
+                    setIsDialogOpen = {setIsDialogOpen}
+                    selectedValue = {selectedValue}
+                />
             </div>
-            <NavigationDialog 
-                isOpen={isDialogOpen}
-                options={updatedFacilities}
-                handleOnItemClick={handleScroll}
-                setIsDialogOpen = {setIsDialogOpen}
-            />
         </section>
         </Fragment>
-        
     )
 }
