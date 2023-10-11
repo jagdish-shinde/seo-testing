@@ -5,7 +5,8 @@ module.exports = {
     domains: [
       process.env.NEXT_PUBLIC_AWS_DOMAIN
     ],
-  }
+  },
+  basePath : '/blog',
 }
 
  

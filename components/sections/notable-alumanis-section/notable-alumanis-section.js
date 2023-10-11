@@ -53,7 +53,7 @@ export default function NotableAlumaniSection() {
             </ScrollableListWrapper>
         </div>
 {alumniList.length > 2 &&
-        <ViewMoreButton btnText={'View All'} pathname={`/blog/${slug}${SLUG_PAGES.notableAlumni}`}/>
+        <ViewMoreButton btnText={'View All'} pathname={`/${slug}${SLUG_PAGES.notableAlumni}`}/>
         }
     </section>
   )

@@ -31,7 +31,7 @@ export function OverviewSection({data}){
     ]
     function handleClick(){
         push({
-            pathname : `/blog/${slug}-photo-gallery`,
+            pathname : `/${slug}-photo-gallery`,
         })
     }
     return(
