@@ -40,6 +40,7 @@ import thiru from "./images/thiruvantpuram.png"
 import iit from "./images/iit lucknow.png"
 import blurImg from "./images/blur.jpg"
 import whatsappLogo from "./svgs/whatsapp-logo.svg"
+import collegeShaalaLogo from "./svgs/collegeShaalaLogo.svg"
 export  {
     logo,
     fstLogo,
@@ -74,5 +75,6 @@ export  {
     leftNavigate,
     bits,thiru,iit,
     blurImg,
-    whatsappLogo
+    whatsappLogo,
+    collegeShaalaLogo
 }
