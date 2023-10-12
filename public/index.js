@@ -41,6 +41,7 @@ import iit from "./images/iit lucknow.png"
 import blurImg from "./images/blur.jpg"
 import whatsappLogo from "./svgs/whatsapp-logo.svg"
 import collegeShaalaLogo from "./svgs/collegeShaalaLogo.svg"
+import collegeShaalaBlueLogo from "./svgs/collegeShaalaBlueLogo.svg"
 export  {
     logo,
     fstLogo,
@@ -76,5 +77,6 @@ export  {
     bits,thiru,iit,
     blurImg,
     whatsappLogo,
-    collegeShaalaLogo
+    collegeShaalaLogo,
+    collegeShaalaBlueLogo
 }

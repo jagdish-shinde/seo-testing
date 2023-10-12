@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Fragment } from "react"
-import {fstLogoBlue } from "../../../public"
+import {fstLogoBlue, collegeShaalaBlueLogo} from "../../../public"
 import { footerBtns, fstOfferings, socialIconWithLink } from "../../../util/constants"
 import styles from "./footer-section.module.css"
 export function FooterSection(){
@@ -13,7 +13,7 @@ export function FooterSection(){
             <div>
                 <div className={styles.logoWrapper}>
                     <Image
-                        src={fstLogoBlue}
+                        src={collegeShaalaBlueLogo}
                         width="100%"
                         height="100%"
                         objectFit="fill"
