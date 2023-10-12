@@ -6,7 +6,7 @@ import BackNavigationButton from '../../atoms/back-navigation-button/back-naviga
 import Image from 'next/image'
 import { FooterSection } from '../../sections'
 import Head from 'next/head'
-import { getAlumniList } from '../../../apis'
+import { getAlumniList, getPageDetails } from '../../../apis'
 import { useRouter } from 'next/router'
 import { removePostFixFromSlug } from '../../../util/helper'
 import { SLUG_PAGES } from '../../../util/constants'
@@ -19,12 +19,13 @@ function NotableAlumnis() {
   const [isLoading, setIsLoading] = useState(true)
   const [collegeData, setCollegeData] = useState({collegeName:"", logo:""})
   const {query,isReady,push} = useRouter()
-  let {slug} = query || {}
+  let {slug, preview=false} = query || {}
 
   async function getAlumaniDetails(){
     try {
-      const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.notableAlumni)
-      const {alumniData, collegeDetails} = await getAlumniList(pageSlug) || {}
+      // const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.notableAlumni)
+      // const {alumniData, collegeDetails} = await getAlumniList(pageSlug) || {}
+      const {alumniData, collegeDetails} = await getPageDetails({slug : slug, preview}) || {}
       amplitude.track('SEO_PAGE_VISIT', {
         pageTitle : `${collegeDetails?.collegeName}: Notable Alumani's`,
         collegeName : collegeDetails?.collegeName

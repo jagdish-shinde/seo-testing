@@ -27,8 +27,8 @@ export function CollegeGalleryComponent() {
     async function getCollegePageDetails(){
         try{
             setIsLoading(true)
-            const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.photoGallery)
-            const data = await getPageDetails({slug: pageSlug, preview})
+            // const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.photoGallery)
+            const data = await getPageDetails({slug: slug, preview})
             if(!data) {
                 push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
                 return

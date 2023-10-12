@@ -5,6 +5,7 @@ import styles from "./overview-section.module.css"
 import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atoms"
 import { SLUG_PAGES } from "../../../util/constants"
 import { useRecoilState } from "recoil"
+import { removeMathchingSubString } from "../../../util/helper";
 
 export function OverviewSection({data}){
     const router = useRouter()
@@ -30,8 +31,9 @@ export function OverviewSection({data}){
         {keyName : "FunctionUp Rating",value:functionupRating}
     ]
     function handleClick(){
+        const pageSlug = removeMathchingSubString(slug)
         push({
-            pathname : `/${slug}-photo-gallery`,
+            pathname : `/${pageSlug}-photo-gallery`
         })
     }
     return(
