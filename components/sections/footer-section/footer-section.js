@@ -21,7 +21,7 @@ export function FooterSection(){
                     />
                 </div>
                 <div className={styles.offering}>
-                    <h5>FunctionUp's Offering</h5>
+                    <h5>FunctionUp&apos;s Offering</h5>
                     {fstOfferings.map((offering,index)=><p key={index}>{offering}</p>)}
                 </div>
             </div>
