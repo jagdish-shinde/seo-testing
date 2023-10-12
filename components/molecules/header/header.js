@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { fstLogo } from "../../../public"
+import { fstLogo, collegeShaalaLogo } from "../../../public"
 import styles from "./header.module.css"
 import { whatsappLogo } from "../../../public"
 import { WHATSAPP_COMMUNITY_GROUP_LINK } from "../../../util/constants"
@@ -27,7 +27,7 @@ export function Header({
         <div className={`${styles.mainWrapper} ${customWrapperStyle}`}>
             <picture className={`${styles.imgWrapper} ${customLogoStyle}`} onClick={()=>{handleClick()}}>
                 <Image 
-                    src={fstLogo}
+                    src={collegeShaalaLogo}
                     height="100%"
                     width="100%"
                     objectFit="fill"
