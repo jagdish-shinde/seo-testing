@@ -1,4 +1,4 @@
-import { SLUG_PAGES } from "./constants"
+import { SLUG_PAGES, SLUG_PREFIX } from "./constants"
 
 export function getCapitalFirstLetter(text){
     if(!text?.length) return ""
@@ -14,4 +14,19 @@ export function removePostFixFromSlug(slug){
         }
     }
     return splittedSlug?.[0] || slug
+}
+
+export function removeMathchingSubString(slug = ''){
+    if(!slug){
+        return
+    }
+    let prefixSlug
+    for (const substring of SLUG_PREFIX) {
+        if (slug.includes(substring)) {
+          const parts = slug.split(substring);
+          prefixSlug = parts.join('').trim();
+          break
+        }
+      }
+    return prefixSlug;
 }

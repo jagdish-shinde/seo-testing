@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react"
 import { ScrollableListWrapper } from "../../wrappers"
 import styles from "./notable-alumanis-section.module.css"
-import { getAlumniList } from '../../../apis'
+import { getAlumniList, getPageDetails  } from '../../../apis'
 import { useRouter } from 'next/router'
 import { removePostFixFromSlug } from '../../../util/helper'
 import { SLUG_PAGES } from '../../../util/constants'
 import ProfileCardV1 from "../../molecules/profile-card-v1/profile-card-v1"
 import ViewMoreButton from "../../atoms/view-more-button/view-more-button"
+import {removeMathchingSubString} from '../../../util/helper'
 
 export default function NotableAlumaniSection() {
     const [alumniList, setAlumniList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const {query,isReady,push} = useRouter()
-    let {slug} = query || {}
+    let {slug,preview=false} = query || {}
+
+    const prefixSlug = removeMathchingSubString(slug)
+
   
     async function getAlumaniDetails(){
       try {
         const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.notableAlumni)
-        const {alumniData} = await getAlumniList(pageSlug) || {}
-        if(!alumniData) {
+        const data = await getPageDetails({slug : pageSlug, preview})
+        if(!data || !data?.alumniData){
           return
         }
+        const {alumniData} = data
         setAlumniList(alumniData)
       } catch (error) {
         console.log(error.message)
@@ -53,7 +58,7 @@ export default function NotableAlumaniSection() {
             </ScrollableListWrapper>
         </div>
 {alumniList.length > 2 &&
-        <ViewMoreButton btnText={'View All'} pathname={`/${slug}${SLUG_PAGES.notableAlumni}`}/>
+        <ViewMoreButton btnText={'View All'} pathname={`/${prefixSlug}${SLUG_PAGES.notableAlumni}`}/>
         }
     </section>
   )

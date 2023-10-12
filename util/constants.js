@@ -52,3 +52,5 @@ export const SLUG_PAGES = {
     photoGallery: "-photo-gallery",
     college: "college",
 }
+
+export const SLUG_PREFIX = ["-placements-ranking-courses-alumni-photos-admissions", "-notable-alumni", "-photo-gallery"]

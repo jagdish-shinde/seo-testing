@@ -31,7 +31,6 @@ export function CollegeDetailsBlogComponent(){
     const [currentPage, setCurrentPage] = useRecoilState(currentSlugPageAtom)
     let {slug,preview=false} = query || {}
 
-
     useEffect(()=>{
         if(!isReady) return
         if(!slug) {
@@ -47,6 +46,18 @@ export function CollegeDetailsBlogComponent(){
             push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
             return
         }
+        let type = data?.type
+        if(type == "college-gallery"){
+            setCurrentPage(SLUG_PAGES.photoGallery)
+            setIsLoading(false)
+            return
+        }
+        if(type == "college-alumni"){
+            setCurrentPage(SLUG_PAGES.notableAlumni)
+            setIsLoading(false)
+            return
+        }
+        setCurrentPage(SLUG_PAGES.college)
         const {
             name='',
             logo='',
@@ -102,17 +113,17 @@ export function CollegeDetailsBlogComponent(){
         try{
             setIsLoading(true)
             slug = slug?.toLowerCase()?.trim()
-            if(slug.includes(SLUG_PAGES.notableAlumni)){
-                setCurrentPage(SLUG_PAGES.notableAlumni)
-                setIsLoading(false)
-                return  
-            }
-            if(slug.includes(SLUG_PAGES.photoGallery)){
-                setCurrentPage(SLUG_PAGES.photoGallery)
-                setIsLoading(false)
-                return
-            }
-            setCurrentPage(SLUG_PAGES.college)
+            // if(slug.includes(SLUG_PAGES.notableAlumni)){
+            //     setCurrentPage(SLUG_PAGES.notableAlumni)
+            //     setIsLoading(false)
+            //     return  
+            // }
+            // if(slug.includes(SLUG_PAGES.photoGallery)){
+            //     setCurrentPage(SLUG_PAGES.photoGallery)
+            //     setIsLoading(false)
+            //     return
+            // }
+            // setCurrentPage(SLUG_PAGES.college)
             await getCollegePageDetails();
             getTopVisitCollege();
             setIsLoading(false)
