@@ -6,12 +6,15 @@ import styles from './hero-section.module.css'
 import {facilitiesWithIcon} from "../../../util/constants"
 import { getCapitalFirstLetter } from '../../../util/helper'
 import * as amplitude from '@amplitude/analytics-browser';
+import { useInView } from 'react-intersection-observer';
 
-export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
+export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inHeaderView=false,intersectionRef}){
     const [selectedValue,setSelectedValue] = useState("Quick navigation")
     const [isDialogOpen,setIsDialogOpen] = useState(false)
     const {name='',logo='',desktopImage='',mobileImage=''} = heroSectionData || {}
     const updatedFacilities = []
+    const [ref,inView] = useInView()
+
     facilitiesWithIcon.forEach(facility=>{
         if(facility?.heading=="Placements" && !isPlacementSectionVisible){
             return
@@ -46,11 +49,12 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
         <section className={`${styles.mainWrapper} ${desktopImage ? styles.backgroundImage : ""}`} 
             style={desktopImage ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${desktopImage})` } : {background:"#2A289C"}}
             >
-            <Header pageTitle={name} collegeName={name}/>
-            <div className={styles.wrapper}>
+            <Header pageTitle={name} collegeName={name} customWrapperStyle={!inHeaderView ? styles.scrolledHeader : ""}/>
+
+            <div className={styles.wrapper} >
                 <div className={styles.collegeNameAndLogoWrapper}>
                     <div className={styles.logoWrapper}>
-                        <div className={styles.logo}>
+                        <div className={styles.logo} ref={intersectionRef}>
                             <Image
                                 src={logo}
                                 width = "100%"
@@ -87,12 +91,11 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false}){
 
         <section className={`${styles.mobileWrapper} ${mobileImage ? styles.backgroundImage : ""}` }
             style={mobileImage ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${mobileImage})` } : {background:"#2A289C"}}
-
         >
-            <Header pageTitle={name} collegeName={name}/>
+            <Header pageTitle={name} collegeName={name} customWrapperStyle={!inView ? styles.scrolledHeader : ""}/>
             <div className={styles.mobileWrapper}>
                 <div className={styles.collegeNameAndLogoWrapper}>
-                    <div className={styles.logoWrapper}>
+                    <div className={styles.logoWrapper} ref={ref}>
                         <div className={styles.logo}>
                             <Image
                                 src={logo}

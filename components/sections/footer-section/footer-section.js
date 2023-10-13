@@ -1,7 +1,6 @@
 import Image from "next/image"
-import { Fragment } from "react"
-import {fstLogoBlue, collegeShaalaBlueLogo} from "../../../public"
-import { footerBtns, fstOfferings, socialIconWithLink } from "../../../util/constants"
+import {collegeShala} from "../../../public"
+import {fstOfferings } from "../../../util/constants"
 import styles from "./footer-section.module.css"
 export function FooterSection(){
     function handleIconClick(link){
@@ -11,15 +10,21 @@ export function FooterSection(){
     return(
         <footer className={`section-padding ${styles.mainWrapper}`}>
             <div>
-                <div className={styles.logoWrapper}>
-                    <Image
-                        src={collegeShaalaBlueLogo}
-                        width="100%"
-                        height="100%"
-                        objectFit="fill"
-                        layout="fill"
-                    />
-                </div>
+                <div className={styles.logoAndTxtWrapper}>
+                    <div className={styles.logoWrapper}>
+                        <Image
+                            src={collegeShala}
+                            width="100%"
+                            height="100%"
+                            objectFit="fill"
+                            layout="fill"
+                        />
+                    </div>
+                    <div className={styles.collegeShala}>
+                        <p>CollegeShaala</p>
+                        <p>by FunctionUp</p>
+                    </div>
+                    </div>
                 <div className={styles.offering}>
                     <h5>FunctionUp&apos;s Offering</h5>
                     {fstOfferings.map((offering,index)=><p key={index}>{offering}</p>)}
@@ -44,7 +49,7 @@ export function FooterSection(){
                         </div>
                     </div> */}
                     
-                    <div>
+                    {/* <div>
                         <div className={styles.footerBtns}>
                             {footerBtns.map(({text,link},index)=>
                                 <Fragment key = {index}>
@@ -53,7 +58,7 @@ export function FooterSection(){
                                 </Fragment>
                             )}
                         </div>
-                    </div>
+                    </div> */}
         </footer>
     )
 }

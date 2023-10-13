@@ -13,6 +13,7 @@ import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atom
 import { useRecoilState } from "recoil"
 import NotableAlumaniSection from "../../sections/notable-alumanis-section/notable-alumanis-section"
 import WhatsappCommunityBtn from "../../atoms/whatsapp-community-btn/whatsapp-community-btn"
+import { useInView } from 'react-intersection-observer';
 
 export function CollegeDetailsBlogComponent(){
     const [heroSectionData,setHeroSectionData] = useState({})
@@ -29,6 +30,7 @@ export function CollegeDetailsBlogComponent(){
     const {query,isReady,push} = useRouter()
     const [topVisitedColleges,setTopVisitedColleges] = useState([])
     const [currentPage, setCurrentPage] = useRecoilState(currentSlugPageAtom)
+    const [ref,inView] = useInView()
     let {slug,preview=false} = query || {}
 
     useEffect(()=>{
@@ -182,7 +184,7 @@ export function CollegeDetailsBlogComponent(){
                 <title>{`${getCapitalFirstLetter(heroSectionData?.name)}: Placements, Ranking, Courses, Alumni, Photos Admissions in 2024`}</title>
             </Head>
             <div className={`${styles.mainWrapper}`}>
-                <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()}/>
+                <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()} inHeaderView={inView} intersectionRef={ref}/>
                 <OverviewSection data={overviewSectionData}/>
                 <ReachConnectivitySection data={connectivityData}/>
                 <RankingSection data={ranking}/>

@@ -13,6 +13,7 @@ import { SLUG_PAGES } from "../../../util/constants";
 import { removePostFixFromSlug } from "../../../util/helper";
 import WhatsappCommunityBtn from "../../atoms/whatsapp-community-btn/whatsapp-community-btn";
 import { FooterSection } from "../../sections";
+import BackNavigationButton from "../../atoms/back-navigation-button/back-navigation-button";
 
 export function CollegeGalleryComponent() {
     const {query,push,isReady, back} = useRouter()
@@ -109,7 +110,7 @@ export function CollegeGalleryComponent() {
 
             {isLoading ? <CollegeGallerySkeleton/> :
                 <div className={`section-padding ${styles.mainWrapper}`}>
-                    <p className={styles.backNavigate} onClick={()=>handleRedirect()}>&larr;BACK</p>
+                    <BackNavigationButton/>
                     <div className={styles.collegeDetailsConatiner}>
                         <div className={styles.collegeWrapper}>
                             <picture className={styles.collegeLogo}>
@@ -124,28 +125,30 @@ export function CollegeGalleryComponent() {
                             </h1>
                         </div>
                     </div>
-                    <div className={styles.mainImage} 
-                        style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${images[currentIdx]})`}}
-                        >
+                    <div className={styles.mainImage} style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${images[currentIdx]})`}}>
+                        <div className={styles.navigateBtnsWrapper}>
+                            {images?.length>1 && <div className={styles.rightbtn} onClick={()=>handleClick("right")}>
+                                <Image 
+                                    src={rightNavigate}
+                                    width="100%"
+                                    height="100%"
+                                    objectFit="fill"
+                                    layout="fill"
+                                />
+                            </div>}
+                            {images?.length>1 && <div className={styles.leftBtn} onClick={()=>handleClick("left")}>
+                                <Image 
+                                    src={leftNavigate}
+                                    width="100%"
+                                    height="100%"
+                                    objectFit="fill"
+                                    layout="fill"
+                                />
+                            </div>}
+                        </div>
+                        
                     </div>
-                    {images?.length>1 && <div className={styles.rightbtn} onClick={()=>handleClick("right")}>
-                        <Image 
-                            src={rightNavigate}
-                            width="100%"
-                            height="100%"
-                            objectFit="fill"
-                            layout="fill"
-                        />
-                    </div>}
-                    {images?.length>1 && <div className={styles.leftBtn} onClick={()=>handleClick("left")}>
-                        <Image 
-                            src={leftNavigate}
-                            width="100%"
-                            height="100%"
-                            objectFit="fill"
-                            layout="fill"
-                        />
-                    </div>}
+                    
                     {images?.length>1 && <div className={styles.btnsWrapper}>
                         {images.map((dot,index)=><div className={styles.dot} style={{backgroundColor : index== currentIdx ? "blue" : "rgb(126, 125, 125)"}} key={index}></div>)}
                     </div>}

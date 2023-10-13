@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { fstLogo, collegeShaalaLogo } from "../../../public"
+import { fstLogo, collegeShaalaLogo, csLogoWithFeather } from "../../../public"
 import styles from "./header.module.css"
 import { whatsappLogo } from "../../../public"
 import { WHATSAPP_COMMUNITY_GROUP_LINK } from "../../../util/constants"
@@ -25,15 +25,21 @@ export function Header({
     }
     return(
         <div className={`${styles.mainWrapper} ${customWrapperStyle}`}>
-            <picture className={`${styles.imgWrapper} ${customLogoStyle}`} onClick={()=>{handleClick()}}>
-                <Image 
-                    src={collegeShaalaLogo}
-                    height="100%"
-                    width="100%"
-                    objectFit="fill"
-                    layout="fill"
-                />
-            </picture>
+            <div className={styles.logoAndTextWrapper} onClick={()=>handleClick()}>
+                <picture className={styles.logoWrapper}>
+                    <Image 
+                        src={csLogoWithFeather}
+                        width = "100%"
+                        height="100%"
+                        objectFit="fill"
+                        layout="fill"
+                    />
+                </picture>
+                <div className={styles.jeeBookText}>
+                    <p>CollegeShaala</p>
+                    <p>by FunctionUp</p>
+                </div>
+            </div>
             <div className={styles.whatsappBtnConatiner} onClick={handleJoinWhatsapp}>
                 <p>Join for Exam Updates</p>
                 <picture className={styles.whatsappImageContainer} >

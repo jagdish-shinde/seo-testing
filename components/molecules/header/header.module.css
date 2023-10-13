@@ -1,17 +1,43 @@
-.imgWrapper{
-    position: relative;
-    display: block;
-    width: 8.056rem;
-    height: 2.625rem;
-    cursor: pointer;
-}
 .whatsappBtnConatiner{
     display: none;
 }
 .mainWrapper{
     display: flex;
     align-items: center;
-    height: 3.44rem;
+    height: 4rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+    padding-left: 1rem;
+}
+.logoWrapper{
+    display: block;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+.logoAndTextWrapper{
+    display: flex;
+    gap: 0.15rem;
+    align-items: center;
+    cursor: pointer;
+}
+.jeeBookText>p:nth-child(1){
+    color: #fff;
+    text-align: center;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+}
+.jeeBookText>p:nth-child(2){
+    color: #fff;
+    font-size: 0.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 @media screen and (min-width: 1024px) {
     .imgWrapper{
@@ -41,16 +67,30 @@
         border-radius: 10px;
         cursor: pointer;
     }
+    .whatsappBtnConatiner:hover{
+        background-color: #218a13;
+    }
     .whatsappBtnConatiner > p {
         color: #FFF;
         text-align: center;
-        font-family: Inter;
         font-size: 0.8rem;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
         display: flex;
         align-items: center;
-        /* border: red 1px solid; */
+    }
+    .logoWrapper{
+        width: 3.3rem;
+        height: 3.1rem;    
+    }
+    .logoAndTextWrapper{
+        gap: 0.30rem;
+    }
+    .jeeBookText>p:nth-child(1){
+        font-size: 1.0578rem;
+    }
+    .jeeBookText>p:nth-child(2){
+        font-size: 0.60445rem;
     }
 }
