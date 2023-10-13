@@ -1,7 +1,6 @@
 .mainWrapper>h1{
     color: #1D252D;
     text-align: center;
-    font-family: Inter;
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 600;
@@ -37,14 +36,12 @@
     margin-top: 1rem;
     color: #4B4B4B;
     text-align: center;
-    font-family: Inter;
     font-size: 0.86756rem;
     font-style: normal;
     font-weight: 500;
 }
 .collegeImgAndNameWrapper>p{
     color: #878787;
-    font-family: Inter;
     font-size: 0.86756rem;
     font-style: normal;
     font-weight: 400;

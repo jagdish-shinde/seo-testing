@@ -7,7 +7,7 @@
     background-size: cover;
 }
 .mobileWrapper{
-    padding: 0.56rem 0.5rem 5.3125rem 1rem;
+    padding: 0.56rem 0.5rem 5.3125rem 0rem;
 }
 .logo{
     position: relative;
@@ -67,13 +67,18 @@
 .quickNavigation>p{
     color: #7C7C7C;
     text-align: center;
-    font-family: Inter;
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
 }
+.scrolledHeader{
+    background-color: #2A289C;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 0.7rem 0;
+}
+
 @media screen and (min-width: 1024px) {
     .mainWrapper{
         padding: 0.7rem 0 4.05rem 0;

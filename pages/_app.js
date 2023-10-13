@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <RecoilRoot>
       <Head>
-        <link rel="icon" href="/svgs/title-logo.svg"/>
+          <link rel="icon" href="./svgs/csTransparentLogo.svg"/>
           <meta
               name="viewport"
               content="width=device-width, initial-scale=1"
