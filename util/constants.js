@@ -37,9 +37,18 @@ export const footerBtns = [
     {text:"Site Map © 2022 FunctionUp All rights reserved.",link:""}
 ]
 export const fstOfferings =[
-    "FunctionUp Data Science, AI & ML",
-    "FunctionUp Full Stack Development",
-    "FunctionUp School of Technology"
+    {
+        text : "FunctionUp Data Science, AI & ML",
+        link : 'https://ds.functionup.org/'
+    },
+    {
+        text :  "FunctionUp Full Stack Development",
+        link : 'https://functionup.org/full-stack-development'
+    },
+    {
+        text : "FunctionUp School of Technology",
+        link : 'https://www.functionupuniversity.com/'
+    } 
 ]
 
 export const degrees = {
