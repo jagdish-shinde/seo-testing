@@ -3,7 +3,7 @@
     padding-bottom: 0.87rem;
     background: #F5F9FE;
     padding: 1.13rem 3.19rem 3.19rem 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .offering>h5{
     color: #1D252D;
@@ -92,6 +92,16 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.footerCourses{
+    width: fit-content;
+    transition: margin-bottom 0.3s; 
+    cursor: pointer;
+}
+.footerCourses:hover{
+    color: #1A35C8;
+    margin-bottom: 0.3rem;
+    border-bottom: 1.5px solid blue;
 }
 @media screen and (min-width:1024px) {
     .mainWrapper{
