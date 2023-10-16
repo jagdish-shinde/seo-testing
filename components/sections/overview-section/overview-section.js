@@ -6,6 +6,7 @@ import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atom
 import { SLUG_PAGES } from "../../../util/constants"
 import { useRecoilState } from "recoil"
 import { removeMathchingSubString } from "../../../util/helper";
+import { CommonDataTable } from "../../molecules"
 
 export function OverviewSection({data}){
     const router = useRouter()
@@ -39,14 +40,10 @@ export function OverviewSection({data}){
     return(
         <section className={styles.mainWrapper}>
             <h1>Summary</h1>
-            <div className={styles.overviewTable}>
-                {overViewTableData.map(({keyName,value},index)=>
-                    <div className={styles.row} key={index}>
-                        <p>{keyName}</p>
-                        <p>{value}</p>
-                    </div>
-                )}
-            </div>
+            <CommonDataTable
+                data={overViewTableData}
+                customWrapperStyle = {styles.tableWrapper}
+            />
             {campusPhotos?.length>0 && <h1 onClick={handleClick}>View Photos</h1>}
         </section>
     )

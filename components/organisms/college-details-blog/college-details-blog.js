@@ -8,12 +8,14 @@ import { CollegeDetailSkeleton } from "./college-detail-skeleton"
 import styles from './college-details.module.css'
 import NotableAlumnis from "../../pages/notable-alumanis/notable-alumanis"
 import { SLUG_PAGES } from "../../../util/constants"
-import { CollegeGallery } from "../../pages/college-gallery"
 import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atoms"
 import { useRecoilState } from "recoil"
 import NotableAlumaniSection from "../../sections/notable-alumanis-section/notable-alumanis-section"
 import WhatsappCommunityBtn from "../../atoms/whatsapp-community-btn/whatsapp-community-btn"
 import { useInView } from 'react-intersection-observer';
+import { CollegeDegreeComponent } from "../college-degree/college-degree"
+import * as amplitude from '@amplitude/analytics-browser';
+import { CollegeGalleryComponent } from "../college-gallery/college-gallery"
 
 export function CollegeDetailsBlogComponent(){
     const [heroSectionData,setHeroSectionData] = useState({})
@@ -25,11 +27,15 @@ export function CollegeDetailsBlogComponent(){
     const [hostelFeeAndCourses,setHostelFeeAndCourses] = useState({})
     const [placementDataFor2022,setPlacementDataFor2022] = useState({})
     const [placementDataFor2023,setPlacementDataFor2023] = useState({})
-    const [isLoading,setIsLoading] = useState(false)
+    const [isLoading,setIsLoading] = useState(true)
     const [description,setDescription] = useState('')
     const {query,isReady,push} = useRouter()
     const [topVisitedColleges,setTopVisitedColleges] = useState([])
     const [currentPage, setCurrentPage] = useRecoilState(currentSlugPageAtom)
+    const [degreeData, setDegreeData] = useState({})
+    const [alumniList, setAlumniList] = useState([])
+    const [alumniPageData, setAlumniPageData] = useState({})
+    const [collegeGalleryPageData, setCollegeGalleryPageData] = useState({})
     const [ref,inView] = useInView()
     let {slug,preview=false} = query || {}
 
@@ -51,11 +57,19 @@ export function CollegeDetailsBlogComponent(){
         let type = data?.type
         if(type == "college-gallery"){
             setCurrentPage(SLUG_PAGES.photoGallery)
+            setCollegeGalleryPageData(data)
             setIsLoading(false)
             return
         }
         if(type == "college-alumni"){
             setCurrentPage(SLUG_PAGES.notableAlumni)
+            setAlumniPageData(data)
+            setIsLoading(false)
+            return
+        }
+        if(type=="degree-description"){
+            setCurrentPage(SLUG_PAGES.degree)
+            setDegreeData(data)
             setIsLoading(false)
             return
         }
@@ -96,7 +110,8 @@ export function CollegeDetailsBlogComponent(){
             placementExplanation2023='',
             topCompanies2022='',
             topCompanies2023='',
-            description=''
+            description='',
+            alumniData=[]
         } = data || {}
         setHeroSectionData({name,logo,desktopImage,mobileImage})
         setOverviewSectionData({city,state,establishedIn,instituteType,courseDegree,functionupRating,coursesOffered,campusPhotos})
@@ -110,44 +125,25 @@ export function CollegeDetailsBlogComponent(){
         })
         setPlacementDataFor2022({averagePackage2022,lowestPackage2022,highestPackage2022,placementExplanation2022,topCompanies2022,placementPercentage2022})
         setDescription(description)
+        setAlumniList(alumniData)
     }
     async function getDetails(){
         try{
-            setIsLoading(true)
             slug = slug?.toLowerCase()?.trim()
-            // if(slug.includes(SLUG_PAGES.notableAlumni)){
-            //     setCurrentPage(SLUG_PAGES.notableAlumni)
-            //     setIsLoading(false)
-            //     return  
-            // }
-            // if(slug.includes(SLUG_PAGES.photoGallery)){
-            //     setCurrentPage(SLUG_PAGES.photoGallery)
-            //     setIsLoading(false)
-            //     return
-            // }
-            // setCurrentPage(SLUG_PAGES.college)
             await getCollegePageDetails();
             getTopVisitCollege();
             setIsLoading(false)
         }catch(error){
             console.log(error?.message)
-            // setIsLoading(false)
             push(process.env.NEXT_PUBLIC_FST_WEBSITE_URL)
         }
     }
 
     async function getTopVisitCollege(){
         try{
-            const pageSlug = removePostFixFromSlug(slug, SLUG_PAGES.photoGallery) 
-            const data = await getTopVisitiedColleges({slug: pageSlug, preview})
+            const data = await getTopVisitiedColleges({slug, preview})
             if(data?.length){
-                const topCollegeData = []
-                data.forEach((collegeData)=>{
-                    const {colleges=[],slug=''} = collegeData || {}
-                    const {desktopImage='',name='',city='',state='',logo=''} = colleges[0] || {}
-                    topCollegeData.push({desktopImage,name,city,state,slug,logo})
-                })
-                setTopVisitedColleges(topCollegeData)
+                setTopVisitedColleges(data)
             }
         }catch(error){
             console.log(error?.message)
@@ -167,16 +163,28 @@ export function CollegeDetailsBlogComponent(){
         return false
     }
 
+    function handleTrendingSearchClick(link,index,name){
+        amplitude.track('SEO_CLIKCED_ON_RECOMMENDATION', {
+            pageTitle : heroSectionData?.name ,
+            navigateToPage :  link,
+            navigationPagePosition : index+1
+        });
+        setTimeout(()=>{ window.open(link,'_blank')},500)
+    }
+
     if(isLoading){
         return (
             <CollegeDetailSkeleton/>
         )
     }
     if(currentPage === SLUG_PAGES.notableAlumni){
-            return <NotableAlumnis />
+        return <NotableAlumnis data={alumniPageData}/>
     }
     if(currentPage === SLUG_PAGES.photoGallery){
-            return <CollegeGallery/>
+        return <CollegeGalleryComponent data={collegeGalleryPageData}/>
+    }
+    if(currentPage === SLUG_PAGES.degree){
+        return <CollegeDegreeComponent data={degreeData} trendingSearches = {topVisitedColleges}/>
     }
     return(
         <main>
@@ -188,11 +196,11 @@ export function CollegeDetailsBlogComponent(){
                 <OverviewSection data={overviewSectionData}/>
                 <ReachConnectivitySection data={connectivityData}/>
                 <RankingSection data={ranking}/>
-                {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges}/>}
+                {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges} handleRedirectToCollege={handleTrendingSearchClick} />}
                 <CoursesAndCampusSection data={coursesAndCampusData}/>
                 <ModeOfAdmissionAndFeeSection modeOfAdmission={modeOfAdmission} hostelFeeAndCourses = {hostelFeeAndCourses} collegeName = {heroSectionData?.name}/>
                 {isPlacementSectionVisible() && <PlacementsSection placementDataFor2022={placementDataFor2022} placementDataFor2023={placementDataFor2023}/>}
-                <NotableAlumaniSection />
+                {alumniList?.length>0 && <NotableAlumaniSection alumniList={alumniList}/>}
                 {description && <AboutSection data={description}/>}
                 <FooterSection/>
             </div>
