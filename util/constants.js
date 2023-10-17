@@ -67,9 +67,15 @@ export const SLUG_PAGES = {
     notableAlumni: '-notable-alumni',
     photoGallery: "-photo-gallery",
     college: "college",
-    degree:"degree"
+    degree:"degree",
+    genericPage : "generic-page",
 }
 
 export const SLUG_PREFIX = ["-placements-ranking-courses-alumni-photos-admissions", "-notable-alumni", "-photo-gallery"]
 
 export const DEGREE_NAME_SUFFIX = 'Scope, Admissions, Fees, Syllabus in 2024'
+
+export const MEDIA_TYPES = {
+    image : 'image',
+    video : 'video',
+}

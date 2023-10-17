@@ -1,0 +1,105 @@
+.wrapper{
+    display: flex;
+    gap: calc(12rem/16);
+    background-color: #FFE9E9;
+    border-radius: 5px;
+    padding: calc(10rem/16) calc(27rem/16) calc(9rem/16) 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.leftSec{
+    min-width: calc(72rem/16);
+    height: calc(80rem/16);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    background-color: white
+}
+.rightSec{
+    flex: 1;
+}
+.title {
+    color: #4B4B4B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    margin-bottom: calc(12rem/16);
+}
+.description{
+    color: #4B4B4B;
+    font-size: calc(12rem/16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+    height: calc(35rem/16);
+    transition: height 0.5s ease-in-out;
+    word-break: break-word;
+}
+.fullDesc{
+    composes : description;
+    height: calc(98rem/16);
+    overflow: scroll;
+}
+.fullDesc::-webkit-scrollbar{
+    display: none;
+}
+.viewMore{
+    color: var(--global-primary-color-two);
+    display: block;
+    cursor: pointer;
+    font-weight: 500;
+    padding-top: 0.2rem;
+    font-size: calc(12rem/16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+}
+.textContaintDekstop{
+    display: none;
+}
+
+@media screen and (min-width : 1024px) {
+    .wrapper{
+        gap: calc(28rem/20);
+        padding: calc(17rem/20) 0;
+        padding-left: calc(21rem/20);
+        padding-right: calc(40rem/20);
+        margin-bottom: calc(21rem/20);
+        position: relative;
+        padding-bottom: 1.7rem;
+    }
+    .leftSec{
+        width: calc(130rem/20);
+        height: calc(130rem/20);
+    }
+    .title{
+        font-size: calc(25rem/20);
+        font-style: normal;
+        font-weight: 600;
+        line-height: calc(34.424rem/20);
+        padding-top: calc(5rem/20);
+        margin-bottom: 0.5rem
+    }
+    .description{
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: calc(34.424rem/20);
+        height: calc(70rem/20);
+    }
+    .fullDesc{
+        height: calc(200rem/20);
+    }
+    .viewMore{
+        font-size: 0.9rem;
+        position: absolute;
+        bottom: 0.5rem
+    }
+    .textContaintMobile{
+        display: none;
+    }
+    .textContaintDekstop{
+        display: unset;
+    }
+    
+}

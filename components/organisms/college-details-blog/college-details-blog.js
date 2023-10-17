@@ -16,6 +16,7 @@ import { useInView } from 'react-intersection-observer';
 import { CollegeDegreeComponent } from "../college-degree/college-degree"
 import * as amplitude from '@amplitude/analytics-browser';
 import { CollegeGalleryComponent } from "../college-gallery/college-gallery"
+import { GenericBlogPage } from "../../pages/generic-blog/generic-blog"
 
 export function CollegeDetailsBlogComponent(){
     const [heroSectionData,setHeroSectionData] = useState({})
@@ -36,6 +37,7 @@ export function CollegeDetailsBlogComponent(){
     const [alumniList, setAlumniList] = useState([])
     const [alumniPageData, setAlumniPageData] = useState({})
     const [collegeGalleryPageData, setCollegeGalleryPageData] = useState({})
+    const [genericPageData, setGenericPageData] = useState({})
     const [ref,inView] = useInView()
     const [isMobileView, setIsMobileView] = useState(false)
     let {slug,preview=false} = query || {}
@@ -84,6 +86,12 @@ export function CollegeDetailsBlogComponent(){
         if(type=="degree-description"){
             setCurrentPage(SLUG_PAGES.degree)
             setDegreeData(data)
+            setIsLoading(false)
+            return
+        }
+        if(type === 'generic-page'){
+            setCurrentPage(SLUG_PAGES?.genericPage)
+            setGenericPageData(data)
             setIsLoading(false)
             return
         }
@@ -199,6 +207,14 @@ export function CollegeDetailsBlogComponent(){
     }
     if(currentPage === SLUG_PAGES.degree){
         return <CollegeDegreeComponent data={degreeData} trendingSearches = {topVisitedColleges}/>
+    }
+    if(currentPage === SLUG_PAGES?.genericPage){
+        return (
+            <GenericBlogPage 
+                data = {genericPageData} 
+                trendingSearches = {topVisitedColleges}
+            />
+        )
     }
     return(
         <main>
