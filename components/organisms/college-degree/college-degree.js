@@ -53,14 +53,14 @@ export function CollegeDegreeComponent({data,trendingSearches=[]}){
     }
 
     const futureScopeTableData = [
-        {keyName : "No of jobs yearly" , value : String(jobOpportunitiesCount)},
+        {keyName : "No of Jobs Yearly" , value : String(jobOpportunitiesCount)},
         {keyName : "Avg Salary for Fresher", value : freshersAvgSalary},
-        {keyName : "Next 10-15 years Demand", value : futureDemandByYears},
+        {keyName : "Next 10-15 Years Demand", value : futureDemandByYears},
         {keyName : "Examination Type", value:examinationType}
     ]
 
     if (String(salaryGrowthByFiveYears).length > 0) {
-        futureScopeTableData.push({ keyName: "Growth in 5 years", value: salaryGrowthByFiveYears });
+        futureScopeTableData.splice(3, 0, { keyName: "Growth in 5 Years", value: salaryGrowthByFiveYears });
     }
     
     const pageData =[
@@ -77,7 +77,7 @@ export function CollegeDegreeComponent({data,trendingSearches=[]}){
             navigateToPage :  link,
             navigationPagePosition : index+1
         });
-        setTimeout(()=>{ window.open(`/blog/${slug}`,'_blank')},500)
+        setTimeout(()=>{ window.open(link,'_blank')},500)
     }
 
     return(

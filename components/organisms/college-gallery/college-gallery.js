@@ -20,6 +20,7 @@ export function CollegeGalleryComponent({data={}}) {
     const [currentIdx,setCurrentIdx] = useState(0)
     const [imageDomensions, setImageDomensions] = useState({width: 0, height: 0})
     const {campusPhotos=[],name='', logo} = data || {}
+    const [isMobileView,setIsMobileView] = useState(false)
 
     useEffect(()=>{
         if(!isReady) return
@@ -33,6 +34,8 @@ export function CollegeGalleryComponent({data={}}) {
     function handleResize() {
       const windowWidth = window?.innerWidth  
       const padding =   window?.innerWidth < 1024 ? 20 : 126
+      const isMobile = window.innerWidth <= 768;
+      setIsMobileView(isMobile);
       setImageDomensions({
         width : (windowWidth - (2 * padding))/2,
         height : ((windowWidth - (2 * padding))/2)/2
@@ -76,8 +79,8 @@ export function CollegeGalleryComponent({data={}}) {
             </Head>
 
             <div className={`section-padding ${styles.mainWrapper}`}>
-                <BackNavigationButton/>
-                <div className={styles.collegeDetailsConatiner}>
+                {isMobileView && <BackNavigationButton/>}
+                <div className={styles.collegeDetailsConatiner} style={{marginTop : isMobileView ? "" : "1rem"}}>
                     <div className={styles.collegeWrapper}>
                         <picture className={styles.collegeLogo}>
                             <Image 

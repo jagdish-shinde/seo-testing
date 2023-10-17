@@ -2,15 +2,11 @@ import { useRouter } from "next/router"
 import { degrees } from "../../../util/constants"
 import { getCapitalFirstLetter } from "../../../util/helper"
 import styles from "./overview-section.module.css"
-import { currentSlugPageAtom } from "../../../util/recoil-states/college-ui-atoms"
-import { SLUG_PAGES } from "../../../util/constants"
-import { useRecoilState } from "recoil"
 import { removeMathchingSubString } from "../../../util/helper";
 import { CommonDataTable } from "../../molecules"
 
-export function OverviewSection({data}){
+export function OverviewSection({data,isMobileView=false}){
     const router = useRouter()
-    const [currentPage, setCurrentPage] = useRecoilState(currentSlugPageAtom)
     const {query , push} = router || {}
     const {slug,preview=false} = query || {}
     const {
@@ -33,10 +29,15 @@ export function OverviewSection({data}){
     ]
     function handleClick(){
         const pageSlug = removeMathchingSubString(slug)
-        push({
-            pathname : `/${pageSlug}-photo-gallery`
-        })
+        if(!isMobileView){
+            window.open(`/blog/${pageSlug}-photo-gallery`,'_blank')
+        }else{
+            push({
+                pathname : `/${pageSlug}-photo-gallery`
+            })
+        }
     }
+
     return(
         <section className={styles.mainWrapper}>
             <h1>Summary</h1>
