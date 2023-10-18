@@ -6,7 +6,7 @@ import ProfileCardV1 from "../../molecules/profile-card-v1/profile-card-v1"
 import ViewMoreButton from "../../atoms/view-more-button/view-more-button"
 import {removeMathchingSubString} from '../../../util/helper'
 
-export default function NotableAlumaniSection({alumniList=[]}) {
+export default function NotableAlumaniSection({alumniList=[],isMobileView=false}) {
     const {query} = useRouter()
     let {slug='',preview=false} = query || {}
 
@@ -23,7 +23,7 @@ export default function NotableAlumaniSection({alumniList=[]}) {
               </ScrollableListWrapper>
           </div>
           {alumniList.length > 2 &&
-            <ViewMoreButton btnText={'View All'} pathname={`/${prefixSlug}${SLUG_PAGES.notableAlumni}`}/>
+            <ViewMoreButton btnText={'View All'} pathname={`/${prefixSlug}${SLUG_PAGES.notableAlumni}`} isOpenInNewWindow={!isMobileView}/>
           }
       </section>
     )

@@ -17,6 +17,7 @@ import { NotableAlumaniSkelton } from './notable-alumni-skelton'
 function NotableAlumnis({data}) {
   const [collegeData, setCollegeData] = useState({collegeName:"", logo:""})
   const {query,isReady,push} = useRouter()
+  const [isMobileView,setIsMobileView] = useState(false)
   let {slug, preview=false} = query || {}
 
   const {alumniData=[],collegeDetails={}} = data || {}
@@ -29,6 +30,17 @@ function NotableAlumnis({data}) {
         });
     },[isReady])
 
+    useEffect(() => {
+      function handleResize() {
+        const isMobile = window.innerWidth <= 768;
+        setIsMobileView(isMobile);
+      }
+      window.addEventListener('resize', handleResize);
+      handleResize();
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
   return (
     <Fragment>
@@ -38,9 +50,9 @@ function NotableAlumnis({data}) {
         </Head>
       <main className={styles.mainWrapper}>
           <div className={styles.backBtn}>
-              <BackNavigationButton />
+              {isMobileView && <BackNavigationButton />}
           </div>
-          <div className={styles.collegeDetailsConatiner}>
+          <div className={styles.collegeDetailsConatiner} style={{marginTop: isMobileView ? "" :"1.5rem"}}>
             <div className={styles.collegeWrapper}>
               <picture className={styles.collegeLogo}>
                   <Image 

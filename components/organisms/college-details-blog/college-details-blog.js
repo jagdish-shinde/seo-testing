@@ -37,6 +37,7 @@ export function CollegeDetailsBlogComponent(){
     const [alumniPageData, setAlumniPageData] = useState({})
     const [collegeGalleryPageData, setCollegeGalleryPageData] = useState({})
     const [ref,inView] = useInView()
+    const [isMobileView, setIsMobileView] = useState(false)
     let {slug,preview=false} = query || {}
 
     useEffect(()=>{
@@ -48,6 +49,19 @@ export function CollegeDetailsBlogComponent(){
         getDetails();
     },[isReady, slug])
     
+    useEffect(() => {
+        function handleResize() {
+          const isMobile = window.innerWidth <= 768;
+          setIsMobileView(isMobile);
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
+
     async function getCollegePageDetails(){
         const data = await getPageDetails({slug,preview})
         if(!data) {
@@ -193,14 +207,14 @@ export function CollegeDetailsBlogComponent(){
             </Head>
             <div className={`${styles.mainWrapper}`}>
                 <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()} inHeaderView={inView} intersectionRef={ref}/>
-                <OverviewSection data={overviewSectionData}/>
+                <OverviewSection data={overviewSectionData} isMobileView={isMobileView}/>
                 <ReachConnectivitySection data={connectivityData}/>
                 <RankingSection data={ranking}/>
                 {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges} handleRedirectToCollege={handleTrendingSearchClick} />}
                 <CoursesAndCampusSection data={coursesAndCampusData}/>
                 <ModeOfAdmissionAndFeeSection modeOfAdmission={modeOfAdmission} hostelFeeAndCourses = {hostelFeeAndCourses} collegeName = {heroSectionData?.name}/>
                 {isPlacementSectionVisible() && <PlacementsSection placementDataFor2022={placementDataFor2022} placementDataFor2023={placementDataFor2023}/>}
-                {alumniList?.length>0 && <NotableAlumaniSection alumniList={alumniList}/>}
+                {alumniList?.length>0 && <NotableAlumaniSection alumniList={alumniList} isMobileView={isMobileView}/>}
                 {description && <AboutSection data={description}/>}
                 <FooterSection/>
             </div>

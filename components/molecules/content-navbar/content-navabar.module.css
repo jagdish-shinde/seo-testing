@@ -10,6 +10,7 @@
     justify-content: space-between;
     padding: 0.62rem 0.87rem;
     align-items: center;
+    margin-left: 0.7rem;
 }
 .quickNavigation>p{
     color: #7C7C7C;
