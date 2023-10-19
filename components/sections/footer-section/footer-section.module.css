@@ -107,7 +107,7 @@
     .mainWrapper{
         display: flex;
         justify-content: space-between;
-        align-items: end;
+        align-items: flex-end;
         padding: 1.9rem 8.5rem 2rem 8.5rem;
         margin-bottom: 0;
     }
@@ -135,7 +135,7 @@
     .socialFollow{
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
     }
     .collegeShala>p:nth-child(1){
         font-size: 1.0578rem;
