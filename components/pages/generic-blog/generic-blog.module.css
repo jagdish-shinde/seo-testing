@@ -1,0 +1,88 @@
+.headerStyle{
+    background-color: var(--global-primary-color-two);
+}
+.heroWrapper{
+    background-color: var(--global-primary-color-two);
+    height: calc(360rem/16);
+    margin-top: 4rem;
+    padding: 0 calc(20rem/16);
+    padding-top: calc(80rem/16);
+    margin-bottom: 2rem;
+}
+.heading {
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: calc(39rem/16);
+    color: #fff;
+}
+.publishedDate{
+    color: #e4e9fa;
+    text-align: center;
+    font-size: calc(18rem/16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: calc(15rem/16);
+}
+.blogDescription{
+    padding: 0 calc(18rem/16);
+    padding-bottom: calc(42rem/16);
+    color: #4B4B4B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: calc(23rem/16)
+}
+.skelHead{
+    height: 4rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.skelBody{
+    height: 10rem;
+    display: block !important;
+}
+.skelWrapper{
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width : 800px) and (max-width :1023px){
+    .heroWrapper{
+        padding:0 calc(180rem/16);
+        padding-top: calc(80rem/16);
+    } 
+    .blogDescription{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }  
+}
+@media screen and (min-width: 1024px) {
+    .heroWrapper{
+        height: calc(480rem/20);
+        margin-top: 4.8rem;
+        padding: 0 calc(260rem/20);
+        padding-top: calc(130rem/20);
+        padding-bottom: 0.5rem;
+        margin-bottom: calc(68rem/20);
+    }
+    .heading {
+        font-size:calc(57rem/20);
+        line-height: normal;
+    }
+    .publishedDate{
+        margin-top: calc(12rem/20);
+    }
+    .blogDescription{
+        padding: 0 calc(172rem/20) calc(110rem/20) calc(168rem/20);
+        color: #4B4B4B;
+        font-size: calc(25rem/20);
+        font-style: normal;
+        line-height: normal;
+    }
+    .skelHead{
+        height: 4.8rem !important;        
+    }
+    
+}
