@@ -25,6 +25,7 @@
     line-height: 1rem;
     margin-bottom: calc(12rem/16);
     line-height: 1.2rem;
+    word-break: break-all;
 }
 .description{
     color: #4B4B4B;
@@ -34,7 +35,8 @@
     line-height: 1rem;
     height: calc(35rem/16);
     transition: height 0.5s ease-in-out;
-    word-break: break-word;
+    word-break: break-all;
+    overflow: hidden;
 }
 .fullDesc{
     composes : description;
@@ -67,8 +69,6 @@
         padding-right: calc(40rem/20);
         margin-bottom: calc(21rem/20);
         position: relative;
-    }
-    .container{
         padding-bottom: 1.7rem;
     }
     .leftSec{
