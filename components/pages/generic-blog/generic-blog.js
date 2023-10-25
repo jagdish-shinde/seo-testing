@@ -6,8 +6,15 @@ import styles from './generic-blog.module.css'
 import * as amplitude from '@amplitude/analytics-browser';
 import HtmlParser from "react-html-parser";
 import WhatsappCommunityBtn from "../../atoms/whatsapp-community-btn/whatsapp-community-btn";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useInView } from 'react-intersection-observer';
+
 
 export function GenericBlogPage ({data, trendingSearches} ){
+    const {isReady} = useRouter()
+    const [ref, inView] = useInView()
+
 
     const {
         description = '',
@@ -28,17 +35,24 @@ export function GenericBlogPage ({data, trendingSearches} ){
         },500)
     }
 
+    useEffect(()=>{
+        if(!isReady) return
+        amplitude.track('SEO_PAGE_VISIT', {
+            pageTitle : `${title} - Generic Blog Page`,
+        });
+    },[isReady])
+
     return (
         <main>
             <Header
-                customWrapperStyle ={styles.headerStyle}
+                customWrapperStyle ={inView ? styles.headerStyle : styles.boxShadow}
                 pageTitle={`${title} - Generic Blog Page`}
             />
             <Head>
-                <title>{`${title}: Generic Blog Page`}</title>
+                <title>{title}</title>
             </Head>
 
-            <section className={`${styles.heroWrapper}`}>
+            <section className={`${styles.heroWrapper}`} ref={ref}>
                 <h2 className={styles.heading}>{title}</h2>
                 <h5 className={styles.publishedDate}>
                     Published on : {publishedAt} by CollegeShaala Team
@@ -66,8 +80,9 @@ export function GenericBlogPage ({data, trendingSearches} ){
             />
             <WhatsappCommunityBtn 
                 pageTitle={`${title} - Generic Blog Page`}
+                containerStyle={styles.footerBtn}
             />
-            <FooterSection/>
+            <FooterSection />
         </main>
     )
 }

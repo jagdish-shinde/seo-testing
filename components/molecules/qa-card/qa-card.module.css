@@ -24,6 +24,7 @@
     font-weight: 600;
     line-height: 1rem;
     margin-bottom: calc(12rem/16);
+    line-height: 1.2rem;
 }
 .description{
     color: #4B4B4B;
@@ -66,6 +67,8 @@
         padding-right: calc(40rem/20);
         margin-bottom: calc(21rem/20);
         position: relative;
+    }
+    .container{
         padding-bottom: 1.7rem;
     }
     .leftSec{
@@ -73,7 +76,7 @@
         height: calc(130rem/20);
     }
     .title{
-        font-size: calc(25rem/20);
+        font-size: calc(20rem/20);
         font-style: normal;
         font-weight: 600;
         line-height: calc(34.424rem/20);
@@ -81,17 +84,20 @@
         margin-bottom: 0.5rem
     }
     .description{
-        font-size: 1rem;
+        font-size: calc(18rem/20);
         font-style: normal;
         font-weight: 300;
         line-height: calc(34.424rem/20);
         height: calc(70rem/20);
+        overflow: hidden;
     }
     .fullDesc{
         height: calc(200rem/20);
+        margin-bottom: 0.2rem;
+        overflow: scroll !important;
     }
     .viewMore{
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         position: absolute;
         bottom: 0.5rem
     }
