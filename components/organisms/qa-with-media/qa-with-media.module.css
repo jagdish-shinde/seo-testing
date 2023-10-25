@@ -14,7 +14,7 @@
 }
 .question{
     color: #000;
-    font-size: calc(28rem/16);
+    font-size: calc(25rem/16);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -57,15 +57,16 @@
         padding-bottom: calc(74rem/20)
     }
     .question{
-        font-size: calc(32rem/20);
+        font-size: calc(28rem/20);
         font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
         line-height: normal;
         border-bottom:none;
         padding-right: 2.5rem;
+        padding-bottom: 0;
     }
     .answer{
-        font-size: calc(25rem/20);
+        font-size: calc(22rem/20);
         font-style: normal;
         line-height: normal;
         padding-top: calc(41rem/20);
