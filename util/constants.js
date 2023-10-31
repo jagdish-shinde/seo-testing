@@ -62,7 +62,7 @@ export const degrees = {
     be: "BE",
     btech : "B.Tech"
 }
-export const WHATSAPP_COMMUNITY_GROUP_LINK = "https://chat.whatsapp.com/IyugFrmgnL4ClG2vUfwzlc"
+export const WHATSAPP_COMMUNITY_GROUP_LINK = "https://chat.whatsapp.com/JWTlEU2WdWiBJAN7qayr9Z"
 export const SLUG_PAGES = {
     notableAlumni: '-notable-alumni',
     photoGallery: "-photo-gallery",
