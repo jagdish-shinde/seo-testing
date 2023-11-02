@@ -17,6 +17,7 @@ import { CollegeDegreeComponent } from "../college-degree/college-degree"
 import * as amplitude from '@amplitude/analytics-browser';
 import { CollegeGalleryComponent } from "../college-gallery/college-gallery"
 import { GenericBlogPage } from "../../pages/generic-blog/generic-blog"
+import { ProgrammaticPage } from "../../pages"
 
 export function CollegeDetailsBlogComponent(){
     const [heroSectionData,setHeroSectionData] = useState({})
@@ -38,6 +39,7 @@ export function CollegeDetailsBlogComponent(){
     const [alumniPageData, setAlumniPageData] = useState({})
     const [collegeGalleryPageData, setCollegeGalleryPageData] = useState({})
     const [genericPageData, setGenericPageData] = useState({})
+    const [programmaticPageData, setProgrammaticPageData] = useState({})
     const [ref,inView] = useInView()
     const [isMobileView, setIsMobileView] = useState(false)
     let {slug,preview=false} = query || {}
@@ -92,6 +94,12 @@ export function CollegeDetailsBlogComponent(){
         if(type === 'generic-page'){
             setCurrentPage(SLUG_PAGES?.genericPage)
             setGenericPageData(data)
+            setIsLoading(false)
+            return
+        }
+        if(type == 'programmatic'){
+            setCurrentPage(SLUG_PAGES?.programmatic)
+            setProgrammaticPageData(data)
             setIsLoading(false)
             return
         }
@@ -212,6 +220,14 @@ export function CollegeDetailsBlogComponent(){
         return (
             <GenericBlogPage 
                 data = {genericPageData} 
+                trendingSearches = {topVisitedColleges}
+            />
+        )
+    }
+    if(currentPage === SLUG_PAGES?.programmatic){
+        return (
+            <ProgrammaticPage
+                data={programmaticPageData}
                 trendingSearches = {topVisitedColleges}
             />
         )
