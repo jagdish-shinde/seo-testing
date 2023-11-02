@@ -1,5 +1,5 @@
-import { SITEMAP_XML_CONTAINS_URL } from "../util/constants";
-import axios from "axios";
+import { generateSiteMap } from "../util/helper";
+import {getApprovedPages} from '../apis/seo-page/get-approved-pages'
 
 const Sitemap = () => null;
 
@@ -7,13 +7,10 @@ export const getServerSideProps = async ({ res }) => {
   // making server side call to get xml data when this page is loaded
   try {
   // Fetch data and build page content ...
-    const headers = {'Accept': 'application/xml'}
-    const content = await axios.get(
-        SITEMAP_XML_CONTAINS_URL,
-        {headers}
-    )
+    const seoPages = await getApprovedPages()
+    const content = generateSiteMap(seoPages)
     res.setHeader("Content-Type", "application/xml");
-    res.write(content?.data);
+    res.write(content);
     res.end();
     return {
         props: {},
