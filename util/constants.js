@@ -79,4 +79,3 @@ export const MEDIA_TYPES = {
     image : 'image',
     video : 'video',
 }
-export const SITEMAP_XML_CONTAINS_URL = 'https://prepaid-functionup-prod.s3.ap-south-1.amazonaws.com/seo/sitemap.xml'
