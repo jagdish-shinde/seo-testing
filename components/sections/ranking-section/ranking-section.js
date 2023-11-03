@@ -3,10 +3,10 @@ import { reward } from "../../../public"
 import styles from "./ranking-section.module.css"
 import HtmlParser from 'react-html-parser'
 
-export function RankingSection({data}){
+export function RankingSection({data, collegeName}){
     return (
         <section id="rank">
-            <h1 className={styles.heading}>Ranking</h1>
+            <h2 className={styles.heading}>What is {collegeName} ranking?</h2>
             <hr></hr>
             <div className={`section-padding ${styles.wrapper}`}>
                 <div className={styles.container}>
@@ -20,7 +20,7 @@ export function RankingSection({data}){
                                 objectFit="fill"
                                 />
                         </div> */}
-                        <p>{data?.length>0 ? HtmlParser(data) : "This college is not yet Ranked by government and any other private institutions"}</p>
+                        <div>{data?.length>0 ? HtmlParser(data) : "This college is not yet Ranked by government and any other private institutions"}</div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { PlacementCard } from '../../molecules'
 import styles from './placements-section.module.css'
 export function PlacementsSection({
-    placementDataFor2022,placementDataFor2023
+    placementDataFor2022,placementDataFor2023, collegeName
 }){
     const {
         averagePackage2022 = 'NA',
@@ -56,7 +56,7 @@ export function PlacementsSection({
 
     return(
         <section className={`${styles.mainWrapper}`} id="placement">
-            <h1>Placements</h1>
+            <h2>What is the placement record of {collegeName}?</h2>
             <hr></hr>
             <div className={`section-padding ${styles.placemntCardWraper}`}>
                 {isCardVisible("2023") && <PlacementCard 

@@ -21,6 +21,7 @@ export function FooterSection(){
                             height="100%"
                             objectFit="fill"
                             layout="fill"
+                            alt="collegeshaala logo"
                         />
                     </div>
                     <div className={styles.collegeShala}>

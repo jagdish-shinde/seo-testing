@@ -35,6 +35,7 @@ export function Header({
                         height="100%"
                         objectFit="fill"
                         layout="fill"
+                        alt="collegeshaala logo"
                     />
                 </picture>
                 <div className={styles.jeeBookText}>
@@ -49,6 +50,7 @@ export function Header({
                         src={whatsappLogo}
                         height="100%"
                         width="100%"
+                        alt="whatsapp logo"
                     />
                 </picture>
             </div>    

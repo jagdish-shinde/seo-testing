@@ -6,7 +6,7 @@ import ProfileCardV1 from "../../molecules/profile-card-v1/profile-card-v1"
 import ViewMoreButton from "../../atoms/view-more-button/view-more-button"
 import {removeMathchingSubString} from '../../../util/helper'
 
-export default function NotableAlumaniSection({alumniList=[],isMobileView=false}) {
+export default function NotableAlumaniSection({alumniList=[],isMobileView=false, collegeName}) {
     const {query} = useRouter()
     let {slug='',preview=false} = query || {}
 
@@ -14,11 +14,11 @@ export default function NotableAlumaniSection({alumniList=[],isMobileView=false}
 
     return (
       <section className={styles.mainWrapper}>
-          <h3>{`Notable Alumni's`}</h3>
+          <h3>{`Notable Alumni`}</h3>
           <div className={styles.scrollerWrapper}>
               <ScrollableListWrapper className={styles.scroller} areNavArrowsVisible={true} areDotsVisible={false} length={alumniList.length}>
                   {alumniList.map( (alumni, index) => (
-                      <ProfileCardV1 key={index} alumni={alumni}/>
+                      <ProfileCardV1 key={index} alumni={alumni} collegeName={collegeName}/>
                   ))}
               </ScrollableListWrapper>
           </div>

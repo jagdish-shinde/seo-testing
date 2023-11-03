@@ -22,6 +22,7 @@ export function ContentNavbar({
                                 height="100%"
                                 objectFit='fill'
                                 layout='fill'
+                                alt={`${heading} icon`}
                             />
                         </div>
                         <p>{heading}</p>
@@ -33,6 +34,7 @@ export function ContentNavbar({
                 <div>
                     <Image
                         src={downArrow}    
+                        alt="down arrow icon"
                     />
                 </div>
             </div>

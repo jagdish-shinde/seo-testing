@@ -219,19 +219,20 @@ export function CollegeDetailsBlogComponent(){
     return(
         <main>
             <Head>
-                <title>{`${getCapitalFirstLetter(heroSectionData?.name)}: Placements, Ranking, Courses, Alumni, Photos Admissions in 2024`}</title>
+                <title>{`Is ${getCapitalFirstLetter(heroSectionData?.name)} Good`}</title>
+                <meta name="description" content={`Discover all about ${heroSectionData?.name}: Admissions, programs, campus life, Fees, Placements record and more. Get all information and insights about Indian engineering colleges.`} />
             </Head>
             <div className={`${styles.mainWrapper}`}>
                 <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()} inHeaderView={inView} intersectionRef={ref}/>
+                {description && <AboutSection data={description} collegeName={heroSectionData?.name}/>}
                 <OverviewSection data={overviewSectionData} isMobileView={isMobileView}/>
-                <ReachConnectivitySection data={connectivityData}/>
-                <RankingSection data={ranking}/>
+                <ReachConnectivitySection data={connectivityData} collegeName={heroSectionData?.name}/>
+                <RankingSection data={ranking} collegeName={heroSectionData?.name}/>
                 {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges} handleRedirectToCollege={handleTrendingSearchClick} />}
-                <CoursesAndCampusSection data={coursesAndCampusData}/>
+                <CoursesAndCampusSection data={coursesAndCampusData} collegeName={heroSectionData?.name}/>
                 <ModeOfAdmissionAndFeeSection modeOfAdmission={modeOfAdmission} hostelFeeAndCourses = {hostelFeeAndCourses} collegeName = {heroSectionData?.name}/>
-                {isPlacementSectionVisible() && <PlacementsSection placementDataFor2022={placementDataFor2022} placementDataFor2023={placementDataFor2023}/>}
-                {alumniList?.length>0 && <NotableAlumaniSection alumniList={alumniList} isMobileView={isMobileView}/>}
-                {description && <AboutSection data={description}/>}
+                {isPlacementSectionVisible() && <PlacementsSection placementDataFor2022={placementDataFor2022} placementDataFor2023={placementDataFor2023} collegeName={heroSectionData?.name}/>}
+                {alumniList?.length>0 && <NotableAlumaniSection alumniList={alumniList} isMobileView={isMobileView} collegeName = {heroSectionData?.name}/>}
                 <FooterSection/>
             </div>
             <WhatsappCommunityBtn pageTitle={`${heroSectionData?.name}`} collegeName={heroSectionData?.name}/>

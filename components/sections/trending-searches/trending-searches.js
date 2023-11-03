@@ -1,7 +1,6 @@
 import Image from "next/image"
 import {blurImg, childWithBook, degreeTrendSearch } from "../../../public"
 import styles from "./trending-searches.module.css"
-import * as amplitude from '@amplitude/analytics-browser';
 
 export function TrendingSearches({
     data=[],
@@ -9,9 +8,12 @@ export function TrendingSearches({
 }){
 
     const genericImages = [degreeTrendSearch,childWithBook]
-    
+    const altForTrendingSearchImages = ["person looking for job", "children with book"]
+    let trendingSearchAlt = 'person looking for job'
     function getRandomIndex(){
-        return Math.floor(Math.random() * genericImages.length);
+        const index = Math.floor(Math.random() * genericImages.length);
+        trendingSearchAlt = altForTrendingSearchImages[index]
+        return index
     }
 
     function isDegreeOrGeneric(type){
@@ -36,6 +38,7 @@ export function TrendingSearches({
                                     layout="fill"   
                                     placeholder="blur"
                                     blurDataURL={blurImg}
+                                    alt={name}
                                 />
                             </div> } 
                             {imageType == "logo" && <div className={styles.logoImgWrapper}>
@@ -48,6 +51,7 @@ export function TrendingSearches({
                                         layout="fill"   
                                         placeholder="blur"
                                         blurDataURL={blurImg}
+                                        alt={`${name} logo`}
                                     />
                                 </div>
                             </div>}
@@ -61,6 +65,7 @@ export function TrendingSearches({
                                         layout="fill"   
                                         placeholder="blur"
                                         blurDataURL={blurImg}
+                                        alt={trendingSearchAlt}
                                     />
                                 </div> } 
                         <h2>{name}</h2>

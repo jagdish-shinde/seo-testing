@@ -1,5 +1,4 @@
 .wrapper{
-    padding-bottom: 2rem;
     padding-top: 1.38rem;
     display: flex;
     flex-direction: column;
@@ -27,18 +26,16 @@
     gap:0.48rem;
     margin-bottom: 0.81rem;
 }
-.iconWithText>p{
+.iconWithText>div{
     color: #4B4B4B;
-    text-align: center;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    word-break: break-all;
 }
 @media screen and (min-width:1024px) {
     .heading{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         margin-bottom: 1.65rem;
         font-weight: 600;
     }
@@ -51,14 +48,14 @@
         margin-bottom: 0.85rem;
 
     }
-    .iconWithText>p{
-        font-size: 1.2rem;
+    .iconWithText>div{
+        font-size: 1.1rem;
         font-style: normal;
         font-weight: 400;
-        line-height: normal;
+        line-height: 1.9rem;
     }
     .wrapper{
         align-items: center;
-        padding-bottom: 5rem;
+        padding-bottom: 1rem;
     }
 }
