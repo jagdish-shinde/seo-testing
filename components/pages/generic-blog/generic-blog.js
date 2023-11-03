@@ -21,6 +21,7 @@ export function GenericBlogPage ({data, trendingSearches} ){
         publishedAt = '',
         title = '',
         subSection = [],
+        metaDescription = ''
     } = data || {};
 
 
@@ -49,6 +50,7 @@ export function GenericBlogPage ({data, trendingSearches} ){
                 pageTitle={`${title} - Generic Blog Page`}
             />
             <Head>
+                <meta name="description" content={metaDescription} />
                 <title>{title}</title>
             </Head>
 
