@@ -23,6 +23,7 @@ export default function WhatsappCommunityBtn({pageTitle, collegeName='', degreeN
             <picture className={styles.whatsappImageContainer} >
                     <Image 
                         src={whatsappLogo}
+                        alt="whatsapp logo"
                     />
                 </picture>
         </div>

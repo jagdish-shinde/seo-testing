@@ -3,7 +3,7 @@ import { addressVector, aeroplane, railway } from "../../../public";
 import { connectivities } from "../../../util/constants";
 import styles from "./reach-connectivity-section.module.css";
 
-export function ReachConnectivitySection({data}){
+export function ReachConnectivitySection({data, collegeName}){
     const {
         address='',
         nearestAirport='',
@@ -17,26 +17,29 @@ export function ReachConnectivitySection({data}){
             icon : addressVector,
             heading : "Address",
             value : address,
+            alt : 'Address icon'
         },
         {
             icon : railway,
             heading : "Nearest Railway Station",
             value :nearestRailway,
-            distanceKey : `(${nearestRailwayDistance})`
+            distanceKey : `(${nearestRailwayDistance})`,
+            alt : 'railway icon'
         },
         {
             icon : aeroplane,
             heading :"Nearest Airport",
             value :nearestAirport,
-            distanceKey : `(${nearestAirportDistance})`
+            distanceKey : `(${nearestAirportDistance})`,
+            alt : 'airport icon'
         }
     ]
     return(
         <section id="connectivity">
-            <h1 className={styles.heading}>Connectivity Instructions</h1>
+            <h2 className={styles.heading}>How to visit {collegeName} and address</h2>
             <hr className={styles.line}></hr>
             <div className={styles.conectivityWrapper}>
-                {connectivities.map(({icon='',heading='',value='',distanceKey=''},index)=>
+                {connectivities.map(({icon='',heading='',value='',distanceKey='', alt},index)=>
                     <div className={styles.connectivityBox} key={index}>
                         <div className={styles.connectivityDetails}>
                             <div className={styles.logo}>
@@ -46,6 +49,7 @@ export function ReachConnectivitySection({data}){
                                     height="100%"
                                     layout="fill"
                                     objectFit="fill"
+                                    alt={alt}
                                 />
                             </div>
                             <div className={styles.textBlock}>

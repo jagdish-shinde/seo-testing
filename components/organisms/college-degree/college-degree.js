@@ -65,10 +65,10 @@ export function CollegeDegreeComponent({data,trendingSearches=[]}){
     
     const pageData =[
         {heading : `What is <span>${name}</span>?`, content : HtmlParser(description), id:'aboutDegree'},
-        {heading :`Future Scope of <span>${name}</span>`, type:"table",id:'futureScope'   },
-        {heading : `Top Recruiting Company`,content :leadingHiringFirms,id:'topRecruiter'},
-        {heading :'Admission Criteria' ,content :HtmlParser(admissionCriteria),id:'eligibility'},
-        {heading :'Who should pursue this?',content : HtmlParser(whoShouldStudy),id:'bestFit'}
+        {heading :`What is scope in <span>${name}</span>?`, type:"table",id:'futureScope'   },
+        {heading : `Which companies hire <span>${name}</span> students?`,content :leadingHiringFirms,id:'topRecruiter'},
+        {heading :`What is Admission criteria for <span>${name}</span>?` ,content :HtmlParser(admissionCriteria),id:'eligibility'},
+        {heading :`Who should pursue <span>${name}</span>?`,content : HtmlParser(whoShouldStudy),id:'bestFit'}
     ]
 
     function handleTrendingSearchClick(link,index,trendingSearchName){
@@ -84,6 +84,7 @@ export function CollegeDegreeComponent({data,trendingSearches=[]}){
         <main>
             <Head>
                 <title>{`${name} : ${DEGREE_NAME_SUFFIX} `}</title>
+                <meta name="description" content={`Learn about the ${name}: eligibility, scope in future, fees, admissions and more. Explore the world of technology education and opportunities in this comprehensive guide.`} />
             </Head>
             <div className={styles.mainWrapper}>
                 <Header customWrapperStyle={styles.header} degreeName={name} pageTitle={`${name} : ${DEGREE_NAME_SUFFIX} `}/>

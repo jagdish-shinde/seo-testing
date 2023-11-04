@@ -1,5 +1,6 @@
 .mainWrapper{
     margin-top: 1.94rem;
+    margin-bottom: 2.31rem;
 }
 .mainWrapper h3{
     color: #1D252D;
@@ -28,6 +29,7 @@
 @media screen and (min-width: 1024px) {
     .mainWrapper{
         margin-top: 4.05rem;
+        margin-bottom: 2.71rem;
     }
     .mainWrapper h3{
         font-size: 1.6rem;

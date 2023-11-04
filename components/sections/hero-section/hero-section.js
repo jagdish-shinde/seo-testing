@@ -62,11 +62,12 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                                 objectFit='fill'
                                 layout='fill' 
                                 placeholder='blur'
-                                blurDataURL={blurImg}                       
+                                blurDataURL={blurImg}   
+                                alt={`${name} Logo`}                    
                             />
                         </div>
                     </div>
-                    <h2>{getCapitalFirstLetter(name)}</h2>
+                    <h1>{`Is ${getCapitalFirstLetter(name)} Good?`}</h1>
                     <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
                 </div>
                 <ContentNavbar
@@ -92,11 +93,12 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                                 width = "100%"
                                 height="100%"
                                 objectFit='fill'
-                                layout='fill'                        
+                                layout='fill'   
+                                alt={`${name} Logo`}                     
                             />
                         </div>
                     </div>
-                    <h2>{getCapitalFirstLetter(name)}</h2>
+                    <h1>{`Is ${getCapitalFirstLetter(name)} Good?`}</h1>
                     <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
                 </div>
                 <ContentNavbar

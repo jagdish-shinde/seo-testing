@@ -3,10 +3,10 @@ import HtmlParser from "react-html-parser"
 import { tick } from "../../../public"
 import styles from "./about-section.module.css"
 
-export function AboutSection({data}){
+export function AboutSection({data, collegeName}){
     return(
         <section id="about">
-            <h1 className={styles.heading}>About</h1>
+            <h1 className={styles.heading}>About {collegeName}</h1>
             <hr></hr>
             <div className={`section-padding ${styles.wrapper}`}>
                 <div>
@@ -20,7 +20,7 @@ export function AboutSection({data}){
                                 layout="fill"
                             />
                         </div> */}
-                        <p>{HtmlParser(data)}</p>
+                        <div>{HtmlParser(data)}</div>
                     </div>
                 </div>
             </div>

@@ -6,19 +6,13 @@ import BackNavigationButton from '../../atoms/back-navigation-button/back-naviga
 import Image from 'next/image'
 import { FooterSection } from '../../sections'
 import Head from 'next/head'
-import { getAlumniList, getPageDetails } from '../../../apis'
 import { useRouter } from 'next/router'
-import { removePostFixFromSlug } from '../../../util/helper'
-import { SLUG_PAGES } from '../../../util/constants'
 import * as amplitude from '@amplitude/analytics-browser';
 import WhatsappCommunityBtn from '../../atoms/whatsapp-community-btn/whatsapp-community-btn'
-import { NotableAlumaniSkelton } from './notable-alumni-skelton'
 
 function NotableAlumnis({data}) {
-  const [collegeData, setCollegeData] = useState({collegeName:"", logo:""})
   const {query,isReady,push} = useRouter()
   const [isMobileView,setIsMobileView] = useState(false)
-  let {slug, preview=false} = query || {}
 
   const {alumniData=[],collegeDetails={}} = data || {}
 
@@ -44,9 +38,10 @@ function NotableAlumnis({data}) {
 
   return (
     <Fragment>
-        <Header  customWrapperStyle={styles.headerStyle} pageTitle={`${collegeDetails?.collegeName}: Notable Alumni's`} collegeName={collegeDetails.collegeName}/>
+        <Header  customWrapperStyle={styles.headerStyle} pageTitle={`${collegeDetails?.collegeName}: Notable Alumni`} collegeName={collegeDetails.collegeName}/>
         <Head>
             <title>{`${collegeDetails?.collegeName}: Notable Alumni`}</title>
+            <meta name='description' content={`Explore the achievements of ${collegeDetails?.collegeName} alumni who have made their mark in various fields. Learn about their inspiring journeys and contributions. Discover the pride of ${collegeDetails?.collegeName}.`}/>
         </Head>
       <main className={styles.mainWrapper}>
           <div className={styles.backBtn}>
@@ -59,23 +54,27 @@ function NotableAlumnis({data}) {
                     src={collegeDetails?.logo || ''}
                     width={"100%"}
                     height={"100%"}
+                    alt={`${collegeDetails?.collegeName} Logo`}
                     />
               </picture>
               <h1 className={styles.collegeName}>
-                {`${collegeDetails?.collegeName}: Notable Alumni's`}
+                {`${collegeDetails?.collegeName}: Notable Alumni`}
               </h1>
+              <h2 className={styles.subHeading}>
+                {`Explore the achievements of ${collegeDetails?.collegeName} notable alumni who have made their mark in various fields. Learn about their inspiring journeys and contributions. Discover the pride of ${collegeDetails?.collegeName}.`}
+              </h2>
             </div>
           </div>
           <section className={styles.alumanisPhotoContainer}>
             <div className={styles.alumniSection}>
               {alumniData.map( (alumni, index) => (
-                <ProfileCardV1 key={index} alumni={alumni}/>
+                <ProfileCardV1 key={index} alumni={alumni} collegeName={collegeDetails?.collegeName}/>
                 ))}
             </div>
           </section>
       </main>
       <FooterSection/>
-      <WhatsappCommunityBtn pageTitle={`${collegeDetails?.collegeName}: Notable Alumni's`} collegeName={collegeDetails?.collegeName}/>
+      <WhatsappCommunityBtn pageTitle={`${collegeDetails?.collegeName}: Notable Alumni`} collegeName={collegeDetails?.collegeName}/>
     </Fragment>
   )
 }

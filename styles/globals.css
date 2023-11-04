@@ -128,7 +128,7 @@ button:hover{
 
 @font-face {
   font-family: "Inter";
-  src: url('/fonts/Inter/Inter-Medium.ttf') format('truetype'); 
+  src: url('../public/fonts/Inter/Inter-Medium.ttf') format('truetype'); 
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -144,7 +144,7 @@ button:hover{
 
 @font-face {
   font-family: "Inter";
-  src: url('/fonts/Inter/Inter-ExtraBold.ttf') format('truetype'); 
+  src: url('../public/fonts/Inter/Inter-ExtraBold.ttf') format('truetype'); 
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -157,6 +157,59 @@ button:hover{
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Gilroy-Light";
+  src: url('../public/fonts/Gilroy/Gilroy-Light.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy-Thin";
+  src: url('../public/fonts/Gilroy/Gilroy-Thin.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url('../public/fonts/Gilroy/Gilroy-Regular.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url('../public/fonts/Gilroy/Gilroy-Medium.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url('../public/fonts/Gilroy/Gilroy-Bold.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-ExtraBold";
+  src: url('../public/fonts/Gilroy/Gilroy-ExtraBold.ttf') format('truetype'); 
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy-SemiBold";
+  src: url('../public/fonts/Gilroy/Gilroy-SemiBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
 :root {
   --global-primary-color-one:#FF2231;
   --global-primary-color-two:#2A289C;

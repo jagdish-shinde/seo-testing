@@ -29,7 +29,7 @@ export function CoursesAndCampusSection({data}){
 
     return(
         <section className={styles.mainWrapper}>
-            <h1  id="courses">Courses and Campus</h1>
+            <h2  id="courses">What Courses are offered by {collegeName}?</h2>
             <hr></hr>
             <div className={`section-padding ${styles.wrapper}`}>
                 <p>{getCapitalFirstLetter(collegeName)} offers the following courses in B.E and B.tech</p>
@@ -57,6 +57,7 @@ export function CoursesAndCampusSection({data}){
                                                     width="100%"
                                                     layout="fill"
                                                     objectFit="fill"
+                                                    alt={`${heading} icon`}
                                                 />
                                             </div>    
                                         </div>
