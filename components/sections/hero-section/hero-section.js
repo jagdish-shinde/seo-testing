@@ -68,7 +68,7 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                         </div>
                     </div>
                     <h1>{`Is ${getCapitalFirstLetter(name)} Good?`}</h1>
-                    <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
+                    <p>Address, Photos,  Placement, Admission Process, Fees in 2024</p>
                 </div>
                 <ContentNavbar
                     data={updatedFacilities}
@@ -99,7 +99,7 @@ export function HeroSection({heroSectionData,isPlacementSectionVisible=false,inH
                         </div>
                     </div>
                     <h1>{`Is ${getCapitalFirstLetter(name)} Good?`}</h1>
-                    <p>Address, Photos,  Placement, Admission Process, Fess in 2024</p>
+                    <p>Address, Photos,  Placement, Admission Process, Fees in 2024</p>
                 </div>
                 <ContentNavbar
                     data={updatedFacilities}

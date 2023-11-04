@@ -4,13 +4,10 @@ import { useRouter } from 'next/router'
 import { SLUG_PAGES } from '../../../util/constants'
 import ProfileCardV1 from "../../molecules/profile-card-v1/profile-card-v1"
 import ViewMoreButton from "../../atoms/view-more-button/view-more-button"
-import {removeMathchingSubString} from '../../../util/helper'
 
-export default function NotableAlumaniSection({alumniList=[],isMobileView=false, collegeName}) {
-    const {query} = useRouter()
-    let {slug='',preview=false} = query || {}
+export default function NotableAlumaniSection({alumniList=[],isMobileView=false, collegeName=''}) {
 
-    const prefixSlug = removeMathchingSubString(slug)
+    const prefixSlug = collegeName?.trim()?.toLowerCase()?.replaceAll(' ', '-')
 
     return (
       <section className={styles.mainWrapper}>
