@@ -10,7 +10,8 @@ export function QaCard ({data}) {
     let {
         description = '',
         image = '',
-        title = ''
+        title = '',
+        altText = 'listImage'
     } = data|| {}
 
     return (
@@ -23,7 +24,7 @@ export function QaCard ({data}) {
                     width='100%'
                     objectFit='cover'
                     layout='fill'
-                    alt='question image'
+                    alt={altText}
                 />
             </div>
 
