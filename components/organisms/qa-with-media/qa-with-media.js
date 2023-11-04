@@ -40,16 +40,15 @@ export function QAContentWithMedia ({data}) {
 
                     {
                         media && 
-                        <div className={styles.rightSec}>
+                        <div className={`${styles.rightSec} ${media.type === MEDIA_TYPES?.image && styles.imageBgStyle}`}>
                         {
                             media.type === MEDIA_TYPES?.image &&
                             <Image
                                 src={media?.link || ''}
                                 height='100%'
                                 width='100%'
-                                objectFit='cover'
-                                layout='fill'
-                                alt = {media?.altText || 'subsectionImage'}  
+                                objectFit='contain'
+                                layout='fill'      
                             /> 
                         }
                         {

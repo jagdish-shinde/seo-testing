@@ -38,6 +38,9 @@
 .qaCards{
     padding-bottom: calc(23rem/16);
 }
+.imageBgStyle{
+    background-color:unset;
+}
 
 @media screen and (min-width : 800px) and (max-width :1023px){
     .wrapper{

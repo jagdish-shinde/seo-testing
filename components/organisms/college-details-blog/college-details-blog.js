@@ -225,7 +225,7 @@ export function CollegeDetailsBlogComponent(){
             <div className={`${styles.mainWrapper}`}>
                 <HeroSection heroSectionData={heroSectionData} isPlacementSectionVisible = {isPlacementSectionVisible()} inHeaderView={inView} intersectionRef={ref}/>
                 {description && <AboutSection data={description} collegeName={heroSectionData?.name}/>}
-                <OverviewSection data={overviewSectionData} isMobileView={isMobileView}/>
+                <OverviewSection data={overviewSectionData} isMobileView={isMobileView} collegeName={heroSectionData?.name}/>
                 <ReachConnectivitySection data={connectivityData} collegeName={heroSectionData?.name}/>
                 <RankingSection data={ranking} collegeName={heroSectionData?.name}/>
                 {topVisitedColleges?.length && <TrendingSearches data={topVisitedColleges} handleRedirectToCollege={handleTrendingSearchClick} />}

@@ -5,7 +5,7 @@ import styles from "./overview-section.module.css"
 import { removeMathchingSubString } from "../../../util/helper";
 import { CommonDataTable } from "../../molecules"
 
-export function OverviewSection({data,isMobileView=false}){
+export function OverviewSection({data,isMobileView=false, collegeName=''}){
     const router = useRouter()
     const {query , push} = router || {}
     const {slug,preview=false} = query || {}
@@ -28,12 +28,13 @@ export function OverviewSection({data,isMobileView=false}){
         {keyName : "FunctionUp Rating",value:functionupRating}
     ]
     function handleClick(){
-        const pageSlug = removeMathchingSubString(slug)
+        let pageSlug = collegeName?.trim()?.toLowerCase().replaceAll(' ', '-')
+
         if(!isMobileView){
-            window.open(`/blog/${pageSlug}-photo-gallery`,'_blank')
+            window.open(`/blog/${pageSlug}-campus-photos`,'_blank')
         }else{
             push({
-                pathname : `/${pageSlug}-photo-gallery`
+                pathname : `/${pageSlug}-campus-photos`
             })
         }
     }
