@@ -49,3 +49,7 @@ export function generateSiteMap(pages = []) {
   
     return header + urls?.join('') + footer;
   }
+
+export function getIsProduction() {
+  return process.env.NODE_ENV === "production";
+}
