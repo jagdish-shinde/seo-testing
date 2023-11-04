@@ -6,7 +6,7 @@ import styles from "./about-section.module.css"
 export function AboutSection({data, collegeName}){
     return(
         <section id="about">
-            <h1 className={styles.heading}>About {collegeName}</h1>
+            <h2 className={styles.heading}>About {collegeName}</h2>
             <hr></hr>
             <div className={`section-padding ${styles.wrapper}`}>
                 <div>
