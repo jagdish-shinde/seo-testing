@@ -23,7 +23,7 @@ export function TrendingSearches({
 
     return(
         <section className={`${styles.mainWrapper}`}>
-            <h1>Most Trending Searches</h1>
+            <h2>Most Trending Searches</h2>
             <hr></hr>
             <div className={`section-padding ${styles.trendingImgWrapper}`}>
                 {data.map(({link='',image,imageType='',name,type},index)=>

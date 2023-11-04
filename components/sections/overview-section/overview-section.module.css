@@ -1,7 +1,7 @@
 .mainWrapper{
     padding: 2.4375rem 1rem 0 1rem;
 }
-.mainWrapper>h1{
+.mainWrapper>h2{
     color: #1D252D;
     text-align: center;
     font-size: calc(22rem/16);
@@ -9,7 +9,7 @@
     font-weight: 600;
     line-height: normal;
 }
-.mainWrapper>h1:last-child{
+.mainWrapper>h2:last-child{
     color: #1B49EA;
     text-align: center;
     font-size: 0.8rem;
@@ -32,15 +32,15 @@
         justify-content: center;
         align-items: center;
     }
-    .mainWrapper>h1{
+    .mainWrapper>h2{
         font-size: 1.3rem;
         font-weight: 700;
     }
-    .mainWrapper>h1:last-child{
+    .mainWrapper>h2:last-child{
         font-size: 1.2rem;
         font-weight: 500;
     }
-    .mainWrapper>h1:last-child{
+    .mainWrapper>h2:last-child{
         font-size: 1rem;
         font-weight: 500;
     }

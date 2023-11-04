@@ -41,12 +41,12 @@ export function OverviewSection({data,isMobileView=false, collegeName=''}){
 
     return(
         <section className={styles.mainWrapper}>
-            <h1>Summary</h1>
+            <h2>Summary</h2>
             <CommonDataTable
                 data={overViewTableData}
                 customWrapperStyle = {styles.tableWrapper}
             />
-            {campusPhotos?.length>0 && <h1 onClick={handleClick}>View Photos</h1>}
+            {campusPhotos?.length>0 && <h2 onClick={handleClick}>View Photos</h2>}
         </section>
     )
 }

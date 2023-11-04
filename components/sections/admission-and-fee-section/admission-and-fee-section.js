@@ -7,11 +7,11 @@ export function ModeOfAdmissionAndFeeSection({modeOfAdmission=[],hostelFeeAndCou
     const updatedData = [{course : "Courses",fee:"SEMESTER FEE"},...coursesWithFee]
     return(
         <section >
-            <h1 className={styles.heading} id="admission">Mode of Admission</h1>
+            <h2 className={styles.heading} id="admission">Mode of Admission</h2>
             <hr></hr>
             <p className={styles.modeOfAdmsn}>{modeOfAdmission?.length ? HtmlParser(`Students appeared for Exams like <span>${modeOfAdmission.join(", ")}</span> are eligible.`) : `Students must have cleared 12th with Physics, Chemistry and Math from govt. recognised boards are eligible.`}</p>
-            {coursesWithFee?.length>0 && <h1 className={styles.heading} id="fees">Fees</h1>}
-            {coursesWithFee?.length<1 && <h1 className={styles.heading} id="fees">Hostel Fee</h1>}
+            {coursesWithFee?.length>0 && <h2 className={styles.heading} id="fees">Fees</h2>}
+            {coursesWithFee?.length<1 && <h2 className={styles.heading} id="fees">Hostel Fee</h2>}
              <hr></hr>
                 <div className={`section-padding ${styles.wrapper}`}>
                     {coursesWithFee?.length>0 && <div className={styles.tableWrapper}>

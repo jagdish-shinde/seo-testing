@@ -6,6 +6,7 @@
     font-weight: 600;
     line-height: normal;
     margin-bottom: calc(12rem/16);
+    padding: 0 1rem;
 }
 .container{
     padding: 1rem 0;
