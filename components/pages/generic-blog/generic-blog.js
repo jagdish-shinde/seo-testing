@@ -47,7 +47,7 @@ export function GenericBlogPage ({data, trendingSearches} ){
         <main>
             <Header
                 customWrapperStyle ={inView ? styles.headerStyle : styles.boxShadow}
-                pageTitle={`${title} - Generic Blog Page`}
+                pageTitle={`${title}`}
             />
             <Head>
                 <meta name="description" content={metaDescription} />

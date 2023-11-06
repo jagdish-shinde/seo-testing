@@ -69,6 +69,7 @@ export const SLUG_PAGES = {
     college: "college",
     degree:"degree",
     genericPage : "generic-page",
+    programmatic : "programmatic"
 }
 
 export const SLUG_PREFIX = ["-placements-ranking-courses-alumni-photos-admissions", "-notable-alumni", "-photo-gallery"]

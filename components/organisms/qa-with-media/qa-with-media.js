@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 import HtmlParser from 'react-html-parser'
 import { MEDIA_TYPES } from '../../../util/constants'
 
-export function QAContentWithMedia ({data}) {
+export function QAContentWithMedia ({data,customTitleStyle ={},customDesStyle={} }) {
     const {
         description = '',
         title = '',
@@ -24,7 +24,7 @@ export function QAContentWithMedia ({data}) {
                             <div className={styles.leftSec}>
                                 {
                                     title &&  
-                                    <h6 className={styles.question}>{title}</h6>
+                                    <h6 className={`${styles.question} ${customTitleStyle}`}>{title}</h6>
                                 }
                                 {
                                     title && (description || media) && (
@@ -33,7 +33,7 @@ export function QAContentWithMedia ({data}) {
                                 }
                                 {
                                     description && 
-                                    <p className={styles.answer}>{HtmlParser(description)}</p>
+                                    <p className={`${styles.answer} ${customDesStyle}`}>{HtmlParser(description)}</p>
                                 }
                             </div>
                     }
