@@ -48,7 +48,8 @@ export function QAContentWithMedia ({data}) {
                                 height='100%'
                                 width='100%'
                                 objectFit='contain'
-                                layout='fill'      
+                                layout='fill'  
+                                alt = {media?.altText || 'subsectionImage'}    
                             /> 
                         }
                         {
