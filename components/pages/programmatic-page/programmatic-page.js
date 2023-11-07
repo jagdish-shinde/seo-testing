@@ -65,7 +65,15 @@ export function ProgrammaticPage({
             facilities=[],
             title='',
             description='',
-            media={}
+            media={},
+            city = '',
+            state = '',
+            establishedIn ='',
+            instituteType = '',
+            courseDegree ='',
+            functionupRating ='',
+            campusPhotos=[],
+            ranking=''
         }= data || {}
 
         if(key == "hostelFeeAndCourses"){
@@ -73,6 +81,9 @@ export function ProgrammaticPage({
                 coursesOffered : coursesOffered!=="NA" ? coursesOffered : [],
                 hostelFee:hostelFee!=="NA" ? hostelFee : ""
             }
+        }
+        if(key == "ranking"){
+            return ranking!=="NA" ? ranking : ""
         }
         if(key == "placementData2022"){
             return {
@@ -104,7 +115,23 @@ export function ProgrammaticPage({
             }
         }
         if(key == "customComponent"){
-            return{title,description,media}
+            return{
+                title,
+                description,
+                ...(Object.keys(media).length && {media})
+            }
+        }
+        if(key == "overview"){
+            return {
+                city : city!=="NA" ? city : "",
+                state : state!=="NA" ? state : "",
+                establishedIn : establishedIn!=="NA" ? establishedIn : "",
+                instituteType : instituteType !== "NA" ? instituteType : "",
+                courseDegree : courseDegree!=="NA" ? courseDegree : "",
+                functionupRating : functionupRating!== "NA" ? functionupRating : "",
+                campusPhotos : campusPhotos!=="NA" ?  campusPhotos : [],
+                coursesOffered : coursesOffered !== "NA" ?  coursesOffered : []
+            }
         }
     }
 
@@ -171,7 +198,11 @@ export function ProgrammaticPage({
                         {
                             type == "reusable" && component == "overview" &&
                             <div>
-                                <OverviewSection data={componentData} isMobileView={isMobileView} collegeName={componentData?.name || ""}/>
+                                <OverviewSection 
+                                    data={getComponentData(componentData,"overview")} 
+                                    isMobileView={isMobileView} 
+                                    collegeName={componentData?.name || ""}
+                                />
                             </div>
                         }
                         {
@@ -205,7 +236,7 @@ export function ProgrammaticPage({
                         {
                             type == "reusable" && component == "ranking" && 
                             <div >
-                                <RankingSection data={componentData} collegeName = {componentData?.name || ""}/>
+                                <RankingSection data={getComponentData(componentData,"ranking")} collegeName = {componentData?.name || ""}/>
                             </div>
                         }
                         {
@@ -214,7 +245,7 @@ export function ProgrammaticPage({
                                 <ModeOfAdmissionAndFeeSection
                                     hostelFeeAndCourses={getComponentData(componentData,"hostelFeeAndCourses")}
                                     collegeName={componentData?.name || ""}
-                                    modeOfAdmission = {componentData?.modeOfAdmission || []}
+                                    modeOfAdmission = {componentData?.modeOfAdmission !== "NA" ? componentData?.modeOfAdmission || [] : []}
                             />
                             </div>
                         }
@@ -226,7 +257,7 @@ export function ProgrammaticPage({
                                     data={getComponentData({
                                         title : title?.text || "",
                                         description : description?.text || "",
-                                        media : {type : mediaType,link: mediaLink}
+                                        ...(mediaType && mediaLink && {media : {type : mediaType,link: mediaLink}})
                                     },"customComponent")}
                                     customTitleStyle= {styles.customTitle}   
                                     customDesStyle = {styles.customTitle}                                 
@@ -237,6 +268,7 @@ export function ProgrammaticPage({
                                     <CommonDataTable 
                                         data={createTableData(table)}
                                         customWrapperStyle ={styles.customTableStyle}
+                                        customRowStyle={styles.rowStyle}
                                     />
                                  </div>
                             }

@@ -17,7 +17,7 @@ export function TrendingSearches({
     }
 
     function isDegreeOrGeneric(type){
-        if(type == "degree-description" || type == "generic-page") return true
+        if(type == "degree-description" || type == "generic-page" || type== "programmatic") return true
         return false
     }
 
